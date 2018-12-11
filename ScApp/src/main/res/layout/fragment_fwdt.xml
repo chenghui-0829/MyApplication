@@ -1,0 +1,141 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg_color_f7f7f7"
+    android:orientation="vertical"
+    tools:context="com.shrxc.sc.app.fwdt.FwdtFragment">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/app_title_bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:drawableLeft="@mipmap/dy_icon"
+            android:text="上海市"
+            android:textColor="@color/app_white_color_ffffff"
+            android:textSize="14dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="服务大厅"
+            android:textColor="@color/app_white_color_ffffff"
+            android:textSize="16dp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/fwdt_fragment_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <com.youth.banner.Banner xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/fwdt_fragment_banner"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                app:image_scale_type="fit_xy"
+                app:indicator_height="6dp"
+                app:indicator_margin="3dp"
+                app:indicator_width="6dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@mipmap/fwdt_xd_bg"
+                android:gravity="right|center_vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@mipmap/fwdt_qxd_icon" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/app_white_color_ffffff"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp">
+
+                <TextView
+                    android:id="@+id/fwdt_fragment_jctz_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/home_jctz_icon"
+                    android:gravity="center_horizontal"
+                    android:text="竞彩投注"
+                    android:textColor="@color/app_text_color_333333"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/fwdt_fragment_sszx_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/home_szsc_icon"
+                    android:gravity="center_horizontal"
+                    android:text="赛事中心"
+                    android:textColor="@color/app_text_color_333333"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/fwdt_fragment_bfzb_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/home_bfzb_icon"
+                    android:gravity="center_horizontal"
+                    android:text="比分直播"
+                    android:textColor="@color/app_text_color_333333"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/fwdt_fragment_sgkj_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/home_sgkj_icon"
+                    android:gravity="center_horizontal"
+                    android:text="赛果开奖"
+                    android:textColor="@color/app_text_color_333333"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            <com.shrxc.sc.app.utils.MyListView
+                android:id="@+id/fwdt_fragment_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:divider="@color/app_line_color_e6e6e6"
+                android:dividerHeight="0.5dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

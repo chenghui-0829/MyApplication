@@ -1,0 +1,153 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg_color_f7f7f7"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    tools:context=".RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/app_title_bg">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="注册"
+                android:textColor="@color/app_white_color_ffffff"
+                android:textSize="18dp" />
+
+            <ImageView
+                android:id="@+id/register_activity_back_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="13dp"
+                android:src="@mipmap/app_back_icon" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/app_circle_stroke_bg_white_color"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/register_activity_phonenum_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@null"
+                    android:hint="请输入您的手机号"
+                    android:inputType="number"
+                    android:maxLength="11"
+                    android:padding="8dp"
+                    android:singleLine="true"
+                    android:textColorHint="@color/app_text_color_999999"
+                    android:textSize="14dp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/app_line_color_e6e6e6" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/register_activity_code_edit"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="5dp"
+                        android:layout_toLeftOf="@+id/register_activity_get_code_button"
+                        android:background="@null"
+                        android:hint="请输入验证码"
+                        android:inputType="number"
+                        android:padding="8dp"
+                        android:singleLine="true"
+                        android:textColorHint="@color/app_text_color_999999"
+                        android:textSize="14dp" />
+
+                    <Button
+                        android:id="@+id/register_activity_get_code_button"
+                        android:layout_width="85dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/app_gray_color_e6e6e6"
+                        android:gravity="center"
+                        android:text="获取验证码"
+                        android:textColor="@color/app_white_color_ffffff"
+                        android:textSize="10dp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/app_line_color_e6e6e6" />
+
+                <EditText
+                    android:id="@+id/register_activity_pw_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@null"
+                    android:digits="@string/edit_only_can_input"
+                    android:hint="输入登录密码 (6~20位)"
+                    android:maxLength="20"
+                    android:padding="8dp"
+                    android:password="true"
+                    android:singleLine="true"
+                    android:textColorHint="@color/app_text_color_999999"
+                    android:textSize="14dp" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/app_line_color_e6e6e6" />
+
+                <EditText
+                    android:id="@+id/register_activity_sure_pw_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@null"
+                    android:digits="@string/edit_only_can_input"
+                    android:hint="确定登录密码"
+                    android:maxLength="20"
+                    android:padding="8dp"
+                    android:password="true"
+                    android:singleLine="true"
+                    android:textColorHint="@color/app_text_color_999999"
+                    android:textSize="14dp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/register_activity_register_button"
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/app_title_bg"
+                android:text="注册"
+                android:textColor="@color/app_white_color_ffffff"
+                android:textSize="14dp" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

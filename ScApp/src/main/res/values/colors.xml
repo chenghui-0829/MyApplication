@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="app_text_color_a5a5a5">#a5a5a5</color>
+    <color name="app_text_color_6a6a6a">#6a6a6a</color>
+    <color name="app_text_color_494949">#494949</color>
+    <color name="app_blue_color_4d8cf5">#4d8cf5</color>
+    <color name="app_blue_color_32b1f2">#32b1f2</color>
+    <color name="app_bg_color_f7f7f7">#f7f7f7</color>
+    <color name="app_white_color_ffffff">#ffffff</color>
+
+
+    <color name="app_line_color_e6e6e6">#eeeeee</color>
+    <!--rgb(51,51,51)-->
+    <color name="app_text_color_black">#000000</color>
+    <!--rgb(51,51,51)-->
+    <color name="app_text_color_333333">#333333</color>
+    <!--rgb(102,102,102)-->
+    <color name="app_text_color_666666">#666666</color>
+    <!--rgb(136,136,136)-->
+    <color name="app_text_color_888888">#888888</color>
+    <!--rgb(153,153,153)-->
+    <color name="app_text_color_999999">#999999</color>
+    <!--rgb(192,192,192)-->
+    <color name="app_text_color_c0c0c0">#C0C0C0</color>
+
+
+    <color name="app_red_color_fa3243">#fa3243</color>
+    <color name="app_blue_color_00beed">#00beed</color>
+    <color name="app_red_color_ff666e">#FF666E</color>
+    <color name="app_red_color_f53141">#f53141</color>
+    <color name="app_green_color_2febbc">#2FEBBC</color>
+    <color name="app_green_color_1db53a">#1DB53A</color>
+    <color name="app_transparent_color">#00000000</color>
+    <color name="app_yellow_color_ffa173">#FFA173</color>
+    <color name="app_gray_color_b1b1b7">#b1b1b7</color>
+
+
+</resources>

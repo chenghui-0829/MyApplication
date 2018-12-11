@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">上彩</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_menu_1_title">首页</string>
+    <string name="app_menu_2_title">发现</string>
+    <string name="app_menu_3_title">订单</string>
+    <string name="app_menu_4_title">我的</string>
+    <string name="title_activity_bfzb_web">BfzbWebActivity</string>
+    <string name="edit_only_can_input">qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM1234567890</string>
+</resources>

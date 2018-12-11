@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/app_gray_circle_color"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/app_top_whilte_circle_color"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="主[15]"
+                android:textColor="@color/app_text_color_999999"
+                android:textSize="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:text="西雅图"
+                android:textColor="@color/app_text_color_333333"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="VS"
+                android:textColor="@color/app_text_color_999999"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:text="达拉斯"
+                android:textColor="@color/app_text_color_333333"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[4]"
+                android:textColor="@color/app_text_color_999999"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="137dp"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="20dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/jz_qbxx_bg"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="半"
+                    android:textColor="@color/app_white_color_ffffff"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginTop="12dp"
+                    android:text="全"
+                    android:textColor="@color/app_white_color_ffffff"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="场"
+                    android:textColor="@color/app_white_color_ffffff"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+            <GridLayout
+                android:id="@+id/jz_bqc_elv_dialog_select_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/app_line_color_e6e6e6"
+                android:columnCount="3"
+                android:paddingBottom="0.5dp"
+                android:paddingRight="0.5dp"
+                android:paddingTop="0.5dp"
+                android:rowCount="3">
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:id="@+id/jz_bqc_elv_qbxx_dialog_ss_layout"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="胜胜"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="12dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="胜平"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="12dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="胜负"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="12dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="平胜"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="12dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="平平"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="12dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="平负"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="12dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="负胜"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="12dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="负平"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="12dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="负负"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="12dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+            </GridLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/app_bottom_whilte_circle_color"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/jz_bqc_elv_dialog_cancle_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="@color/app_text_color_666666"
+                android:textSize="14dp" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="35dp"
+                android:background="@color/app_line_color_e6e6e6" />
+
+            <TextView
+                android:id="@+id/jz_bqc_elv_dialog_sure_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="@color/app_text_color_333333"
+                android:textSize="14dp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

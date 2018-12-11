@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_white_color_ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:id="@+id/jl_hhgg_elv_child_fx_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/jl_hhgg_elv_xq_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="周六001"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/jl_hhgg_elv_type_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="英超"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/jl_hhgg_elv_time_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="08:12截止"
+                android:textSize="12dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="分析"
+                    android:textSize="12dp" />
+
+                <ImageView
+                    android:id="@+id/jl_hhgg_elv_child_fx_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:src="@mipmap/app_down_gray_arow_icon" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/jl_hhgg_elv_kd_name_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:text="西雅图"
+                    android:textColor="@color/app_text_color_333333"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:text="VS"
+                    android:textColor="@color/app_text_color_999999"
+                    android:textSize="13dp" />
+
+                <TextView
+                    android:id="@+id/jl_hhgg_elv_zd_name_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="3dp"
+                    android:text="达拉斯"
+                    android:textColor="@color/app_text_color_333333"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="10dp">
+
+                <LinearLayout
+                    android:id="@+id/jl_hhgg_elv_qbxx_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/app_gray_stroke_color"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/jl_hhgg_elv_qbxx_selected_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="全部"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/jl_hhgg_elv_qbxx_selected_size_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="选项"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toLeftOf="@id/jl_hhgg_elv_qbxx_layout"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="14dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="#7ea6da">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:ems="1"
+                                android:gravity="center"
+                                android:text="让分"
+                                android:textColor="@color/app_white_color_ffffff"
+                                android:textSize="9dp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:background="#87c9c9">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_centerInParent="true"
+                                android:ems="1"
+                                android:gravity="center"
+                                android:text="大小分"
+                                android:textColor="@color/app_white_color_ffffff"
+                                android:textSize="9dp" />
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <GridLayout
+                        android:id="@+id/jl_hhgg_elv_select_Layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/app_line_color_e6e6e6"
+                        android:columnCount="2"
+                        android:paddingBottom="0.5dp"
+                        android:paddingTop="0.5dp"
+                        android:rowCount="2">
+
+                        <LinearLayout
+                            android:layout_columnWeight="1"
+                            android:layout_gravity="fill"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_rowWeight="1"
+                            android:background="@color/app_white_color_ffffff"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="客胜"
+                                android:textColor="@color/app_text_color_333333"
+                                android:textSize="14dp" />
+
+                            <TextView
+                                android:id="@+id/jl_hhgg_elv_kd_pl_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="3dp"
+                                android:text="2.37"
+                                android:textColor="@color/app_text_color_888888"
+                                android:textSize="12dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_columnWeight="1"
+                            android:layout_gravity="fill"
+                            android:layout_rowWeight="1"
+                            android:background="@color/app_white_color_ffffff"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="主胜"
+                                android:textColor="@color/app_text_color_333333"
+                                android:textSize="14dp" />
+
+                            <TextView
+                                android:id="@+id/jl_hhgg_elv_rf_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="3dp"
+                                android:text="-1.5"
+                                android:textColor="@color/app_green_color_1db53a"
+                                android:textSize="14dp" />
+
+                            <TextView
+                                android:id="@+id/jl_hhgg_elv_zd_pl_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="3dp"
+                                android:text="2.37"
+                                android:textColor="@color/app_text_color_888888"
+                                android:textSize="12dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_columnWeight="1"
+                            android:layout_gravity="fill"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_rowWeight="1"
+                            android:background="@color/app_white_color_ffffff"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/jl_hhgg_elv_df_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="大于162.5"
+                                android:textColor="@color/app_text_color_333333"
+                                android:textSize="14dp" />
+
+                            <TextView
+                                android:id="@+id/jl_hhgg_elv_df_pl_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="3dp"
+                                android:text="2.37"
+                                android:textColor="@color/app_text_color_888888"
+                                android:textSize="12dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_columnWeight="1"
+                            android:layout_gravity="fill"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_rowWeight="1"
+                            android:background="@color/app_white_color_ffffff"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/jl_hhgg_elv_xf_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="小于162.5"
+                                android:textColor="@color/app_text_color_333333"
+                                android:textSize="14dp" />
+
+                            <TextView
+                                android:id="@+id/jl_hhgg_elv_xf_pl_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="3dp"
+                                android:text="2.37"
+                                android:textColor="@color/app_text_color_888888"
+                                android:textSize="12dp" />
+                        </LinearLayout>
+                    </GridLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/jl_hhgg_elv_fx_detail_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="历史交锋"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="近10次交战,西雅图3胜4平4负"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="近期战绩"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="主队3胜4平4负"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="客队3胜4平4负"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="主客胜率"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text=""
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="百家平均"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text=""
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="投注比例"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text=""
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/jl_hhgg_child_ssfx_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="5dp"
+            android:drawableRight="@mipmap/app_right_arrow_icon"
+            android:gravity="center_vertical"
+            android:padding="5dp"
+            android:text="详细赛事分析"
+            android:textSize="12dp" />
+    </LinearLayout>
+</LinearLayout>

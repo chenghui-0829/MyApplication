@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/app_white_color_ffffff"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/jz_elv_group_nyr_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2018-08-12" />
+
+        <TextView
+            android:id="@+id/jz_elv_group_xq_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="星期一" />
+
+        <TextView
+            android:id="@+id/jz_elv_group_cs_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2场比赛" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/jz_group_arrow_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/app_down_gray_arow_icon" />
+</RelativeLayout>

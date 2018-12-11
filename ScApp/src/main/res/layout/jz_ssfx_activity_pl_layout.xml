@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/jz_ssfx_activity_pl_layout_type_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/app_gray_color_e6e6e6"
+        android:orientation="horizontal"
+        android:padding="0.5dp">
+
+        <TextView
+            android:id="@+id/jz_ssfx_activity_pl_layout_op_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="0.5dp"
+            android:layout_weight="1"
+            android:background="@drawable/left_gray_circle_bg"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="欧赔"
+            android:textColor="@color/app_white_color_ffffff"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/jz_ssfx_activity_pl_layout_yp_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="0.5dp"
+            android:layout_weight="1"
+            android:background="@color/app_white_color_ffffff"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="亚盘"
+            android:textColor="@color/app_text_color_333333"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/jz_ssfx_activity_pl_layout_dxf_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="0.5dp"
+            android:layout_weight="1"
+            android:background="@color/app_white_color_ffffff"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="大小分"
+            android:textColor="@color/app_text_color_333333"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/jz_ssfx_activity_pl_layout_bf_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/right_whilte_circle_bg"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="必发"
+            android:textColor="@color/app_text_color_333333"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_line_color_e6e6e6"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_white_color_ffffff"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/jz_ssfx_activity_pl_plsj_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="赔率数据"
+                    android:textColor="@color/app_red_color_fa3243"
+                    android:textSize="14dp" />
+
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="2dp"
+                    android:background="@color/app_red_color_fa3243" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/jz_ssfx_activity_pl_klzs_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="凯利指数"
+                    android:textColor="@color/app_text_color_666666"
+                    android:textSize="14dp" />
+
+                <View
+                    android:layout_width="60dp"
+                    android:layout_height="2dp"
+                    android:background="@color/app_red_color_fa3243"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/jz_ssfx_activity_pl_content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include
+                layout="@layout/jz_ssfx_activity_pl_op_plsj_layout"
+                android:visibility="visible" />
+
+            <include
+                layout="@layout/jz_ssfx_activity_pl_op_klzs_layout"
+                android:visibility="gone" />
+
+            <include
+                layout="@layout/jz_ssfx_activity_pl_yp_plsj_layout"
+                android:visibility="gone" />
+
+            <include
+                layout="@layout/jz_ssfx_activity_pl_yp_klzs_layout"
+                android:visibility="gone" />
+
+            <include
+                layout="@layout/jz_ssfx_activity_pl_dxp_plsj_layout"
+                android:visibility="gone" />
+
+            <include
+                layout="@layout/jz_ssfx_activity_pl_dxp_klzs_layout"
+                android:visibility="gone" />
+
+            <include
+                layout="@layout/jz_ssfx_activity_pl_bf_plsj_layout"
+                android:visibility="gone" />
+
+            <include
+                layout="@layout/jz_ssfx_activity_pl_bf_klzs_layout"
+                android:visibility="gone" />
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>
+

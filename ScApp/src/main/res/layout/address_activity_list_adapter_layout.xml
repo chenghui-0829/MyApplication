@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/address_activity_list_adapter_xg_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:padding="10dp"
+        android:src="@mipmap/address_xg_icon" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/address_activity_list_adapter_bq_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/app_text_color_333333"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/address_activity_list_adapter_details_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="合生财富广场南楼906"
+                android:textColor="@color/app_text_color_333333"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/address_activity_list_adapter_nane_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x先生"
+                android:textColor="@color/app_text_color_666666"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/address_activity_list_adapter_tel_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="15875952552"
+                android:textColor="@color/app_text_color_666666"
+                android:textSize="14dp" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

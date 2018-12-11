@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_white_color_ffffff"
+        android:columnCount="3"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/jc_lqtz_type_dialog_sf_text"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_marginRight="5dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/app_gray_stroke_circle_color"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="胜负"
+            android:textColor="@color/app_text_color_666666"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/jc_lqtz_type_dialog_rfsf_text"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/app_gray_stroke_circle_color"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="让分胜负" />
+
+        <TextView
+            android:id="@+id/jc_lqtz_type_dialog_sfc_text"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_marginLeft="5dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/app_gray_stroke_circle_color"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="胜分差" />
+
+        <TextView
+            android:id="@+id/jc_lqtz_type_dialog_dxf_text"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/app_gray_stroke_circle_color"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="大小分" />
+
+        <TextView
+            android:id="@+id/jc_lqtz_type_dialog_hhgg_text"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/app_gray_stroke_circle_color"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="混合过关" />
+
+        <TextView
+            android:id="@+id/jc_lqtz_type_dialog_dgtz_text"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_rowWeight="1"
+            android:background="@drawable/app_gray_stroke_circle_color"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="单关投注" />
+    </GridLayout>
+</RelativeLayout>

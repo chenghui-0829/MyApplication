@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="10dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/jz_ssfx_fx_jqzj_list_ssname_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="欧冠"
+                android:textColor="@color/app_text_color_666666"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/jz_ssfx_fx_jqzj_list_time_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18-07-19"
+                android:textColor="@color/app_text_color_666666"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/jz_ssfx_fx_jqzj_list_zdname_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="AC米兰"
+                android:textColor="@color/app_text_color_666666"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/jz_ssfx_fx_jqzj_list_bf_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="1:0(0:0)"
+                android:textColor="@color/app_text_color_666666"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/jz_ssfx_fx_jqzj_list_kdname_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="罗森博格"
+                android:textColor="@color/app_text_color_666666"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/jz_ssfx_fx_jqzj_list_result_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="胜"
+                android:textColor="@color/app_text_color_666666"
+                android:textSize="12dp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

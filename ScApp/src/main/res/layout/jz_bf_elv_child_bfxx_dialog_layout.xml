@@ -1,0 +1,908 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/app_gray_circle_color"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/app_top_whilte_circle_color"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="主[15]"
+                android:textColor="@color/app_text_color_999999"
+                android:textSize="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:text="西雅图"
+                android:textColor="@color/app_text_color_333333"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:text="VS"
+                android:textColor="@color/app_text_color_999999"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:text="达拉斯"
+                android:textColor="@color/app_text_color_333333"
+                android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[4]"
+                android:textColor="@color/app_text_color_999999"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="229dp"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="14dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/jz_qbxx_bg"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="比"
+                    android:textColor="@color/app_white_color_ffffff"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="分"
+                    android:textColor="@color/app_white_color_ffffff"
+                    android:textSize="10dp" />
+            </LinearLayout>
+
+
+            <GridLayout
+                android:id="@+id/jz_bf_elv_child_select_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/app_line_color_e6e6e6"
+                android:columnCount="7"
+                android:paddingBottom="0.5dp"
+                android:paddingRight="0.5dp"
+                android:paddingTop="0.4dp"
+                android:rowCount="5">
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1:0"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2:0"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2:1"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3:0"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3:1"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3:2"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4:0"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4:1"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4:2"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5:0"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5:1"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5:2"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="12dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnSpan="2"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="胜其它"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0:0"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1:1"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2:2"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3:3"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnSpan="3"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="平其它"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0:1"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0:2"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1:2"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0:3"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1:3"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2:3"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0:4"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1:4"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2:4"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0:5"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1:5"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2:5"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="11dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+
+                <com.shrxc.sc.app.utils.MyCheckLinearLayout
+                    android:layout_columnSpan="2"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_rowWeight="1"
+                    android:background="@color/app_white_color_ffffff"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="负其它"
+                        android:textColor="@color/app_text_color_333333"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:00"
+                        android:textColor="@color/app_text_color_999999"
+                        android:textSize="12dp" />
+                </com.shrxc.sc.app.utils.MyCheckLinearLayout>
+            </GridLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/app_bottom_whilte_circle_color"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/jz_bf_elv_child_dialog_cancle_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="@color/app_text_color_666666"
+                android:textSize="14dp" />
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="35dp"
+                android:background="@color/app_line_color_e6e6e6" />
+
+            <TextView
+                android:id="@+id/jz_bf_elv_child_dialog_sure_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="@color/app_text_color_333333"
+                android:textSize="14dp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

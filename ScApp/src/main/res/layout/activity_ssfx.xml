@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg_color_f7f7f7"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.shrxc.sc.app.dntz.JlSsfxActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/app_title_bg">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:padding="12dp"
+            android:src="@mipmap/app_back_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="赛事分析"
+            android:textColor="@color/app_white_color_ffffff"
+            android:textSize="16dp" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_white_color_ffffff"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/jl_ssfx_activity_kd_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="5dp"
+            android:drawableTop="@mipmap/ys_logo_icon"
+            android:gravity="center_horizontal"
+            android:text="天空"
+            android:textColor="@color/app_text_color_333333"
+            android:textSize="14dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/jl_ssfx_activity_ssname_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/app_text_color_999999"
+                android:textSize="14dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:src="@mipmap/ssfx_vs_icon" />
+
+            <TextView
+                android:id="@+id/jl_ssfx_activity_time_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textColor="@color/app_text_color_999999"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/jl_ssfx_activity_zd_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="5dp"
+            android:drawableTop="@mipmap/r76_logo_icon"
+            android:gravity="center_horizontal"
+            android:text="狂热"
+            android:textColor="@color/app_text_color_333333"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/app_line_color_e6e6e6" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_white_color_ffffff"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ssfx_activity_fx_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ssfx_activity_fx_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="分析"
+                android:textColor="@color/app_red_color_fa3243"
+                android:textSize="14dp" />
+
+            <View
+                android:id="@+id/ssfx_activity_fx_line"
+                android:layout_width="30dp"
+                android:layout_height="1dp"
+                android:background="@color/app_red_color_fa3243" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ssfx_activity_sl_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ssfx_activity_sl_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="赔率"
+                android:textColor="@color/app_text_color_333333"
+                android:textSize="14dp" />
+
+            <View
+                android:id="@+id/ssfx_activity_sl_line"
+                android:layout_width="30dp"
+                android:layout_height="1dp"
+                android:background="@color/app_red_color_fa3243"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ssfx_activity_tj_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ssfx_activity_tj_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="推荐"
+                android:textColor="@color/app_text_color_333333"
+                android:textSize="14dp" />
+
+            <View
+                android:id="@+id/ssfx_activity_tj_line"
+                android:layout_width="30dp"
+                android:layout_height="1dp"
+                android:background="@color/app_red_color_fa3243"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ssfx_activity_sk_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ssfx_activity_sk_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="实况"
+                android:textColor="@color/app_text_color_333333"
+                android:textSize="14dp" />
+
+            <View
+                android:id="@+id/ssfx_activity_sk_line"
+                android:layout_width="30dp"
+                android:layout_height="1dp"
+                android:background="@color/app_red_color_fa3243"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                android:id="@+id/ssfx_activity_fx_con_layout"
+                layout="@layout/jl_ssfx_activity_fx_layout"
+                android:visibility="visible" />
+
+            <include
+                android:id="@+id/ssfx_activity_sl_con_layout"
+                layout="@layout/ssfx_activity_sl_layout"
+                android:visibility="gone" />
+        </FrameLayout>
+    </ScrollView>
+</LinearLayout>
