@@ -19,6 +19,7 @@ import com.shrxc.sc.app.dntz.JczqActivity;
 import com.shrxc.sc.app.dntz.JzSsfxActivity;
 import com.shrxc.sc.app.utils.AppUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -37,7 +38,7 @@ public class JzRqspfElvAdapter extends BaseExpandableListAdapter {
         this.games = games;
         int childCount = 0;
         for (int i = 0; i < games.size(); i++) {
-            childCount += games.get(i).getGameNum();
+            childCount += games.get(i).getGames().size();
         }
         childs = JzAdapterUtil.initChilds(games == null ? 0 : games.size(), childCount, 4);
     }
@@ -95,7 +96,7 @@ public class JzRqspfElvAdapter extends BaseExpandableListAdapter {
         }
         gvh.nyrText.setText(games.get(i).getTime());
         gvh.xqText.setText(AppUtil.dateToWeek(games.get(i).getTime()));
-        gvh.csText.setText(games.get(i).getGameNum() + "场比赛");
+        gvh.csText.setText(games.get(i).getGames().size()+ "场比赛");
         return view;
     }
 
@@ -205,6 +206,10 @@ public class JzRqspfElvAdapter extends BaseExpandableListAdapter {
         return JzAdapterUtil.getSelectList(childs, games);
     }
 
+    public void clearSelect() {
+        JzAdapterUtil.clearSelected(childs, JzRqspfElvAdapter.this);
+    }
+
     @Override
     public void notifyDataSetChanged() {
         super.notifyDataSetChanged();
@@ -216,6 +221,36 @@ public class JzRqspfElvAdapter extends BaseExpandableListAdapter {
             JczqActivity.selectNumTextView.setText("已选1场,还差1场");
         } else {
             JczqActivity.selectNumTextView.setText(Html.fromHtml("已选" + "<font color='#fa3243'>" + list.size() + "</font>" + "场"));
+        }
+
+        if (list.size() > 0) {
+            List<TextView> ggfsList = new ArrayList<>();
+            LinearLayout layout1 = (LinearLayout) JczqActivity.ggfsLayout.getChildAt(0);
+            for (int i = 0; i < layout1.getChildCount(); i++) {
+                ggfsList.add((TextView) layout1.getChildAt(i));
+            }
+            LinearLayout layout2 = (LinearLayout) JczqActivity.ggfsLayout.getChildAt(1);
+            for (int i = 0; i < layout2.getChildCount(); i++) {
+                ggfsList.add((TextView) layout2.getChildAt(i));
+            }
+
+            for (int i = 0; i < ggfsList.size(); i++) {
+                if (i < list.size()) {
+                    if (i == 0) {
+                        ggfsList.get(i).setEnabled(false);
+                        ggfsList.get(i).setBackgroundResource(R.drawable.app_gray_color_e6e6e6);
+                    } else {
+                        ggfsList.get(i).setEnabled(true);
+                        if (JczqActivity.ggfsMap.get(i) != 1) {
+                            ggfsList.get(i).setBackgroundResource(R.drawable.app_gray_stroke_circle_color);
+                        }
+                    }
+                } else {
+                    JczqActivity.ggfsMap.put(i, 0);
+                    ggfsList.get(i).setEnabled(false);
+                    ggfsList.get(i).setBackgroundResource(R.drawable.app_gray_color_e6e6e6);
+                }
+            }
         }
     }
 

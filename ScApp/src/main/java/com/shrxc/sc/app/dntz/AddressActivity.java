@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.shrxc.sc.app.LoginActivity;
 import com.shrxc.sc.app.R;
 import com.shrxc.sc.app.bean.AddressEntity;
 import com.shrxc.sc.app.http.HttpRequestUtil;
@@ -73,13 +74,16 @@ public class AddressActivity extends AppCompatActivity {
         addressList = new ArrayList<>();
         adapter = new ListAdapter();
         addressListView.setAdapter(adapter);
-        HttpRequestUtil.getInstance(context).getByNoParams("User/GetDeliveryAddressList", new RequestCallback() {
+        HttpRequestUtil.getInstance(context).getByNoParams("DeliveryAddress/GetDeliveryAddressList", new RequestCallback() {
             @Override
             public void onSuccess(JSONObject result, String state, String msg, String data) {
                 super.onSuccess(result, state, msg, data);
                 if (state.equals("1")) {
                     addressList = JSON.parseArray(data, AddressEntity.class);
                     adapter.notifyDataSetChanged();
+                }else if ("-1".equals(state)) {
+                    Intent intent = new Intent(context, LoginActivity.class);
+                    startActivity(intent);
                 }
             }
 
@@ -93,7 +97,7 @@ public class AddressActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.address_activity_add_text})
+    @OnClick({R.id.address_activity_add_text, R.id.address_activity_back_icon})
     public void onClick(View view) {
 
         switch (view.getId()) {
@@ -101,6 +105,9 @@ public class AddressActivity extends AppCompatActivity {
                 Intent intent = new Intent(context, AddAddressActivity.class);
                 intent.putExtra("type", "add");
                 startActivity(intent);
+                break;
+            case R.id.address_activity_back_icon:
+                finish();
                 break;
         }
     }

@@ -1,12 +1,22 @@
 package com.shrxc.sc.app.utils;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.TextView;
+
+import com.shrxc.sc.app.R;
 
 import java.math.BigDecimal;
 import java.text.ParseException;
@@ -22,6 +32,17 @@ import java.util.regex.Pattern;
 
 public class AppUtil {
 
+
+    public static void goBack(View view, final Activity activity) {
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.finish();
+            }
+        });
+
+    }
 
     /***
      * 判断网络是否连接
@@ -148,4 +169,63 @@ public class AppUtil {
         Matcher matcher = pattern.matcher(mobile);
         return matcher.matches();
     }
+
+    public static void showHintDiaolog(Context context, String result,
+                                       final HintDialogEventImp listener) {
+        try {
+            final Dialog dialog = new Dialog(context, R.style.dialog);
+            View view = LayoutInflater.from(context).inflate(
+                    R.layout.show_request_result_hint_dialog, null);
+            TextView resulTextView = (TextView) view
+                    .findViewById(R.id.show_request_result_dialog_result_text);
+            TextView sureTextView = (TextView) view
+                    .findViewById(R.id.show_request_result_dialog_sure_text);
+
+            resulTextView.setText(result);
+            dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+                @Override
+                public boolean onKey(DialogInterface dialog, int keyCode,
+                                     KeyEvent event) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK
+                            && event.getRepeatCount() == 0) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            });
+            dialog.setCancelable(false);
+            dialog.setContentView(view);
+            dialog.show();
+            Window dialogWindow = dialog.getWindow();
+            dialogWindow.getDecorView().setPadding(0, 0, 0, 0);
+            WindowManager.LayoutParams lp = dialogWindow.getAttributes();
+            lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+            lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+            dialogWindow.setAttributes(lp);
+
+            sureTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View arg0) {
+                    dialog.cancel();
+                    dialog.dismiss();
+                    if (listener != null) {
+                        listener.eventClickListener();
+                    }
+                }
+            });
+        } catch (Exception e) {
+
+        }
+    }
+
+    /***
+     * 判断字符是否身份证号
+     */
+    public static boolean isIdNum(String num) {
+        Pattern idNumPattern = Pattern.compile("^\\d{15}|^\\d{17}([0-9]|X|x)$");
+        Matcher idNumMatcher = idNumPattern.matcher(num);
+        return idNumMatcher.matches();
+    }
+
 }

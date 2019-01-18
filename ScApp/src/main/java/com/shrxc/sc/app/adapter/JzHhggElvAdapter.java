@@ -49,7 +49,7 @@ public class JzHhggElvAdapter extends BaseExpandableListAdapter {
         this.games = games;
         int childCount = 0;
         for (int i = 0; i < games.size(); i++) {
-            childCount += games.get(i).getGameNum();
+            childCount += games.get(i).getGames().size();
         }
         childs = JzAdapterUtil.initChilds(games == null ? 0 : games.size(), childCount, 55);
     }
@@ -109,7 +109,7 @@ public class JzHhggElvAdapter extends BaseExpandableListAdapter {
 
         gvh.nyrText.setText(games.get(i).getTime());
         gvh.xqText.setText(AppUtil.dateToWeek(games.get(i).getTime()));
-        gvh.csText.setText(games.get(i).getGameNum() + "场比赛");
+        gvh.csText.setText(games.get(i).getGames().size() + "场比赛");
         return view;
     }
 
@@ -940,6 +940,10 @@ public class JzHhggElvAdapter extends BaseExpandableListAdapter {
      */
     public List<JzChildGameEntity> getSelectList() {
         return JzAdapterUtil.getSelectList(childs, games);
+    }
+
+    public void clearSelect() {
+        JzAdapterUtil.clearSelected(childs, JzHhggElvAdapter.this);
     }
 
     @Override

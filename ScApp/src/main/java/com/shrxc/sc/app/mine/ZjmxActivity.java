@@ -30,6 +30,7 @@ public class ZjmxActivity extends AppCompatActivity {
         zjmxListView.setAdapter(new ListAdapter());
     }
 
+
     private class ListAdapter extends BaseAdapter {
 
         @Override

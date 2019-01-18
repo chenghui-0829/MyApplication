@@ -84,6 +84,7 @@
         android:background="@color/app_line_color_e6e6e6" />
 
     <RelativeLayout
+        android:id="@+id/qb_activity_bank_card_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/app_white_color_ffffff"

@@ -83,7 +83,8 @@ public class AddAddressActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.add_address_activity_selelct_address_layout, R.id.add_address_activity_save_but, R.id.add_address_activity_delete_text})
+    @OnClick({R.id.add_address_activity_selelct_address_layout, R.id.add_address_activity_save_but,
+            R.id.add_address_activity_delete_text, R.id.add_address_activity_back_icon})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.add_address_activity_selelct_address_layout:
@@ -96,6 +97,9 @@ public class AddAddressActivity extends AppCompatActivity {
             case R.id.add_address_activity_delete_text:
                 deteleAddress();
                 break;
+            case R.id.add_address_activity_back_icon:
+                finish();
+                break;
         }
     }
 
@@ -104,7 +108,7 @@ public class AddAddressActivity extends AppCompatActivity {
         HashMap<String, Object> params = new HashMap<>();
         params.put("adId", address.getId());
 
-        HttpRequestUtil.getInstance(context).get("User/RemoveAddress", params, new RequestCallback() {
+        HttpRequestUtil.getInstance(context).get("DeliveryAddress/RemoveAddress", params, new RequestCallback() {
             @Override
             public void onSuccess(JSONObject result, String state, String msg, String data) {
                 super.onSuccess(result, state, msg, data);
@@ -164,9 +168,9 @@ public class AddAddressActivity extends AppCompatActivity {
         params.put("Gender", gender);
         if (type.equals("bj")) {
             params.put("adId", address.getId());
-            addUrl = "User/UpdateAddress";
+            addUrl = "DeliveryAddress/UpdateAddress";
         } else {
-            addUrl = "User/AddDeliveryAddress";
+            addUrl = "DeliveryAddress/AddDeliveryAddress";
         }
 
         HttpRequestUtil.getInstance(context).get(addUrl, params, new RequestCallback() {

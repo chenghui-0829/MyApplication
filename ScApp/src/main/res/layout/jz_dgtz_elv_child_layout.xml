@@ -176,104 +176,205 @@
                         </RelativeLayout>
                     </LinearLayout>
 
-                    <GridLayout
-                        android:id="@+id/jz_dgtz_elv_select_layout"
+
+                    <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:background="@color/app_line_color_e6e6e6"
-                        android:columnCount="3"
-                        android:paddingBottom="0.5dp"
-                        android:paddingTop="0.5dp"
-                        android:rowCount="2">
+                        android:layout_height="match_parent"
+                        android:background="@color/app_line_color_e6e6e6">
 
-                        <LinearLayout
-                            android:id="@+id/jz_dgtz_elv_s_layout"
-                            android:layout_columnWeight="1"
-                            android:layout_gravity="fill"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_rowWeight="1"
-                            android:background="@color/app_white_color_ffffff"
-                            android:gravity="center">
+                        <GridLayout
+                            android:id="@+id/jz_dgtz_elv_select_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:columnCount="3"
+                            android:paddingBottom="0.5dp"
+                            android:paddingTop="0.5dp"
+                            android:rowCount="2">
+
+                            <LinearLayout
+                                android:id="@+id/jz_dgtz_elv_frq_s_layout"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="fill"
+                                android:layout_marginRight="0.5dp"
+                                android:layout_rowWeight="1"
+                                android:background="@color/app_white_color_ffffff"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="胜"
+                                    android:textColor="@color/app_text_color_333333"
+                                    android:textSize="14dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="3dp"
+                                    android:text="2.3"
+                                    android:textSize="12dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/jz_dgtz_elv_frq_p_layout"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="fill"
+                                android:layout_marginRight="0.5dp"
+                                android:layout_rowWeight="1"
+                                android:background="@color/app_white_color_ffffff"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="平"
+                                    android:textColor="@color/app_text_color_333333"
+                                    android:textSize="14dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="3dp"
+                                    android:text="2.3"
+                                    android:textSize="12dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/jz_dgtz_elv_frq_f_layout"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="fill"
+                                android:layout_rowWeight="1"
+                                android:background="@color/app_white_color_ffffff"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="负"
+                                    android:textColor="@color/app_text_color_333333"
+                                    android:textSize="14dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="3dp"
+                                    android:text="2.3"
+                                    android:textSize="12dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/jz_dgtz_elv_rq_s_layout"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="fill"
+                                android:layout_marginRight="0.5dp"
+                                android:layout_marginTop="0.5dp"
+                                android:layout_rowWeight="1"
+                                android:background="@color/app_white_color_ffffff"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="胜"
+                                    android:textColor="@color/app_text_color_333333"
+                                    android:textSize="14dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="3dp"
+                                    android:text="2.3"
+                                    android:textSize="12dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/jz_dgtz_elv_rq_p_layout"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="fill"
+                                android:layout_marginRight="0.5dp"
+                                android:layout_marginTop="0.5dp"
+                                android:layout_rowWeight="1"
+                                android:background="@color/app_white_color_ffffff"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="平"
+                                    android:textColor="@color/app_text_color_333333"
+                                    android:textSize="14dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="3dp"
+                                    android:text="2.3"
+                                    android:textSize="12dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/jz_dgtz_elv_rq_f_layout"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="fill"
+                                android:layout_marginTop="0.5dp"
+                                android:layout_rowWeight="1"
+                                android:background="@color/app_white_color_ffffff"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="负"
+                                    android:textColor="@color/app_text_color_333333"
+                                    android:textSize="14dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="3dp"
+                                    android:text="2.3"
+                                    android:textSize="12dp" />
+                            </LinearLayout>
+                        </GridLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:paddingBottom="0.5dp"
+                            android:paddingTop="0.5dp">
+
 
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="胜"
-                                android:textColor="@color/app_text_color_333333"
-                                android:textSize="14dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="3dp"
-                                android:text="2.3"
-                                android:textSize="12dp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/jz_dgtz_elv_p_layout"
-                            android:layout_columnWeight="1"
-                            android:layout_gravity="fill"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_rowWeight="1"
-                            android:background="@color/app_white_color_ffffff"
-                            android:gravity="center">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="平"
-                                android:textColor="@color/app_text_color_333333"
-                                android:textSize="14dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="3dp"
-                                android:text="2.3"
-                                android:textSize="12dp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/jz_dgtz_elv_f_layout"
-                            android:layout_columnWeight="1"
-                            android:layout_gravity="fill"
-                            android:layout_rowWeight="1"
-                            android:background="@color/app_white_color_ffffff"
-                            android:gravity="center">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="负"
-                                android:textColor="@color/app_text_color_333333"
-                                android:textSize="14dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="3dp"
-                                android:text="2.3"
-                                android:textSize="12dp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_columnSpan="3"
-                            android:layout_columnWeight="1"
-                            android:layout_gravity="fill"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_rowWeight="1"
-                            android:background="@color/app_white_color_ffffff"
-                            android:gravity="center">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:id="@+id/jz_dgtz_elv_close_frq_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:background="@color/app_white_color_ffffff"
+                                android:gravity="center"
                                 android:text="该玩法未开单关"
                                 android:textColor="@color/app_text_color_999999"
-                                android:textSize="14dp" />
-                        </LinearLayout>
-                    </GridLayout>
+                                android:textSize="14dp"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/jz_dgtz_elv_close_rq_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:layout_alignParentBottom="true"
+                                android:background="@color/app_white_color_ffffff"
+                                android:gravity="center"
+                                android:text="该玩法未开单关"
+                                android:textColor="@color/app_text_color_999999"
+                                android:textSize="14dp"
+                                android:visibility="visible" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="0.5dp"
+                                android:layout_centerVertical="true"
+                                android:background="@color/app_line_color_e6e6e6" />
+                        </RelativeLayout>
+                    </FrameLayout>
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>

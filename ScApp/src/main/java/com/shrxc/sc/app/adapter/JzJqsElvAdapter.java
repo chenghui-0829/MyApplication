@@ -39,7 +39,7 @@ public class JzJqsElvAdapter extends BaseExpandableListAdapter {
         this.games = games;
         int childCount = 0;
         for (int i = 0; i < games.size(); i++) {
-            childCount += games.get(i).getGameNum();
+            childCount += games.get(i).getGames().size();
         }
         childs = JzAdapterUtil.initChilds(games == null ? 0 : games.size(), childCount, 9);
     }
@@ -98,7 +98,7 @@ public class JzJqsElvAdapter extends BaseExpandableListAdapter {
 
         gvh.nyrText.setText(games.get(i).getTime());
         gvh.xqText.setText(AppUtil.dateToWeek(games.get(i).getTime()));
-        gvh.csText.setText(games.get(i).getGameNum() + "场比赛");
+        gvh.csText.setText(games.get(i).getGames().size() + "场比赛");
         return view;
     }
 
@@ -224,15 +224,17 @@ public class JzJqsElvAdapter extends BaseExpandableListAdapter {
         return JzAdapterUtil.getSelectList(childs, games);
     }
 
+    public void clearSelect() {
+        JzAdapterUtil.clearSelected(childs, JzJqsElvAdapter.this);
+    }
+
     @Override
     public void notifyDataSetChanged() {
         super.notifyDataSetChanged();
 
         List<JzChildGameEntity> list = JzAdapterUtil.getSelectList(childs, games);
         if (list.size() == 0) {
-            JczqActivity.selectNumTextView.setText("请至少选择2场比赛");
-        } else if (list.size() == 1) {
-            JczqActivity.selectNumTextView.setText("已选1场,还差1场");
+            JczqActivity.selectNumTextView.setText("请至少选择1场比赛");
         } else {
             JczqActivity.selectNumTextView.setText(Html.fromHtml("已选" + "<font color='#fa3243'>" + list.size() + "</font>" + "场"));
         }

@@ -128,6 +128,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="25dp"
                         android:background="@drawable/app_gray_stroke_circle_color"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
                         android:gravity="center_vertical"
                         android:orientation="horizontal"
                         android:padding="1dp">
@@ -309,6 +311,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/jz_activity_clear_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -349,74 +352,80 @@
             </RelativeLayout>
         </LinearLayout>
 
-        <FrameLayout
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/jz_activity_refresh_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/jz_activity_bottom_layout">
 
-            <ExpandableListView
-                android:id="@+id/jz_activity_spf_elv"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:groupIndicator="@null"
-                android:overScrollMode="never"
-                android:scrollbars="none"
-                android:visibility="gone"></ExpandableListView>
+                android:layout_height="match_parent">
 
-            <ExpandableListView
-                android:id="@+id/jz_activity_rqspf_elv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:groupIndicator="@null"
-                android:overScrollMode="never"
-                android:scrollbars="none"
-                android:visibility="gone"></ExpandableListView>
+                <ExpandableListView
+                    android:id="@+id/jz_activity_spf_elv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:groupIndicator="@null"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"
+                    android:visibility="gone"></ExpandableListView>
 
-            <ExpandableListView
-                android:id="@+id/jz_activity_hhgg_elv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:groupIndicator="@null"
-                android:overScrollMode="never"
-                android:scrollbars="none"
-                android:visibility="gone"></ExpandableListView>
+                <ExpandableListView
+                    android:id="@+id/jz_activity_rqspf_elv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:groupIndicator="@null"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"
+                    android:visibility="gone"></ExpandableListView>
 
-            <ExpandableListView
-                android:id="@+id/jz_activity_bf_elv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:groupIndicator="@null"
-                android:overScrollMode="never"
-                android:scrollbars="none"
-                android:visibility="gone"></ExpandableListView>
+                <ExpandableListView
+                    android:id="@+id/jz_activity_hhgg_elv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:groupIndicator="@null"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"
+                    android:visibility="gone"></ExpandableListView>
 
-            <ExpandableListView
-                android:id="@+id/jz_activity_jqs_elv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:groupIndicator="@null"
-                android:overScrollMode="never"
-                android:scrollbars="none"
-                android:visibility="gone"></ExpandableListView>
+                <ExpandableListView
+                    android:id="@+id/jz_activity_bf_elv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:groupIndicator="@null"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"
+                    android:visibility="gone"></ExpandableListView>
 
-            <ExpandableListView
-                android:id="@+id/jz_activity_bqc_elv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:groupIndicator="@null"
-                android:overScrollMode="never"
-                android:scrollbars="none"
-                android:visibility="gone"></ExpandableListView>
+                <ExpandableListView
+                    android:id="@+id/jz_activity_jqs_elv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:groupIndicator="@null"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"
+                    android:visibility="gone"></ExpandableListView>
 
-            <ExpandableListView
-                android:id="@+id/jz_activity_dgtz_elv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:groupIndicator="@null"
-                android:overScrollMode="never"
-                android:scrollbars="none"
-                android:visibility="gone"></ExpandableListView>
-        </FrameLayout>
+                <ExpandableListView
+                    android:id="@+id/jz_activity_bqc_elv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:groupIndicator="@null"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"
+                    android:visibility="gone"></ExpandableListView>
+
+                <ExpandableListView
+                    android:id="@+id/jz_activity_dgtz_elv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:groupIndicator="@null"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"
+                    android:visibility="gone"></ExpandableListView>
+            </FrameLayout>
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
         <View
             android:id="@+id/jz_activity_tm_view"

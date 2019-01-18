@@ -69,7 +69,8 @@ public class JzsxActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.jzsx_activity_all_text, R.id.jzsx_activity_fx_text, R.id.jzsx_activity_ls_text, R.id.jzsx_activity_sure_text})
+    @OnClick({R.id.jzsx_activity_all_text, R.id.jzsx_activity_fx_text, R.id.jzsx_activity_ls_text, R.id.jzsx_activity_sure_text,
+            R.id.jzsx_activity_back_icon})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.jzsx_activity_all_text:
@@ -120,16 +121,27 @@ public class JzsxActivity extends AppCompatActivity {
                     selected = 2;
                 }
 
+                List<Integer> list = new ArrayList<>();
+
                 for (int i = 0; i < ssTypeList.size(); i++) {
                     for (int j = 0; j < ls.length; j++) {
                         if (ssTypeList.get(i).equals(ls[j])) {
-                            stateMap.put(i, 1);
-                            continue;
-                        } else {
-                            stateMap.put(i, 0);
+                            list.add(i);
                         }
                     }
                 }
+
+                for (Integer key : stateMap.keySet()) {
+                    stateMap.put(key, 0);
+                }
+
+                if (list.size() > 0) {
+                    for (int i = 0; i < list.size(); i++) {
+                        stateMap.put(list.get(i), 1);
+                    }
+                }
+
+
                 adapter.notifyDataSetChanged();
                 break;
             case R.id.jzsx_activity_sure_text:
@@ -157,6 +169,9 @@ public class JzsxActivity extends AppCompatActivity {
                 bundle.putSerializable("select", (Serializable) select);
                 intent.putExtras(bundle);
                 setResult(0x888, intent);
+                finish();
+                break;
+            case R.id.jzsx_activity_back_icon:
                 finish();
                 break;
         }

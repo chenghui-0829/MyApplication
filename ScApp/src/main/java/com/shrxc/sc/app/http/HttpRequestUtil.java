@@ -1,10 +1,12 @@
 package com.shrxc.sc.app.http;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
+import com.shrxc.sc.app.LoginActivity;
 import com.shrxc.sc.app.utils.AppUtil;
 import com.shrxc.sc.app.utils.DesUtil;
 import com.shrxc.sc.app.utils.SPUtil;
@@ -33,6 +35,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class HttpRequestUtil {
 
     private static String baseUrl = "http://101.37.119.225:8888/api/";
+    public static String imgUrl = "http://101.37.119.225:8888/";
     private OkHttpClient httpClient;
     private static HttpRequestUtil instance;
     private static Context mContext;
@@ -66,8 +69,7 @@ public class HttpRequestUtil {
     public void get(String url, Map<String, Object> params, RequestCallback callback) {
 
         if (!AppUtil.IsNetConnect(mContext)) {
-            Toast.makeText(mContext, "网络连接异常", Toast.LENGTH_SHORT)
-                    .show();
+            AppUtil.showHintDiaolog(mContext, "网络连接异常", null);
             return;
         }
         //拼装接口
@@ -180,7 +182,14 @@ public class HttpRequestUtil {
             System.out.println("----------result-------" + response.body());
 
             int responseCode = response.code();
-            if (responseCode == 404 || responseCode >= 500) {
+
+            if (responseCode == 403 || responseCode == 417) {
+                Intent intent = new Intent(mContext, LoginActivity.class);
+                mContext.startActivity(intent);
+                return;
+            }
+
+            if (responseCode == 404 || responseCode >= 500 || responseCode == 403 || responseCode == 417) {
                 requestCallback.onErro(response.message());
                 requestCallback.onFinish();
                 return;
@@ -208,7 +217,6 @@ public class HttpRequestUtil {
             Log.e("requestUrl==========>", "请求的url:" + request.url());
             Request.Builder requestBuilder = null;
             try {
-//                String Param_IP = DesUtil.EncryptAsDoNet(getLocalIpAddress(), DesUtil.DesKey).trim();
                 String Param_IP = DesUtil.EncryptAsDoNet("123456", DesUtil.DesKey).trim();
                 requestBuilder = request.newBuilder()
                         .header("Content-Type", "application/json")
@@ -217,6 +225,7 @@ public class HttpRequestUtil {
 //                        .addHeader("Param_IP", DesUtil.EncryptAsDoNet("123456",DesUtil.DesKey))
                         .addHeader("Param_IP", Param_IP)
                         .method(request.method(), request.body());
+
             } catch (Exception e) {
                 e.printStackTrace();
             }

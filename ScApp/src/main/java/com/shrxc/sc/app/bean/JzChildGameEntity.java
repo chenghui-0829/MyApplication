@@ -23,9 +23,27 @@ public class JzChildGameEntity implements Serializable {
     private String rspl;
     private String rppl;
     private String rfpl;
+    private String IsSPF;
+    private String IsRSPF;
     private String rangqiu;
     private JzTzTypeEntity tzTypeEntity;
     private List<Integer> selectedList;
+
+    public String getIsSPF() {
+        return IsSPF;
+    }
+
+    public void setIsSPF(String isSPF) {
+        IsSPF = isSPF;
+    }
+
+    public String getIsRSPF() {
+        return IsRSPF;
+    }
+
+    public void setIsRSPF(String isRSPF) {
+        IsRSPF = isRSPF;
+    }
 
     public String getStarttime() {
         return starttime;

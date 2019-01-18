@@ -13,7 +13,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
 import com.shrxc.sc.app.http.HttpRequestUtil;
@@ -75,10 +74,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 final String phone = phoneEditText.getText().toString()
                         .replaceAll(" ", "");
-                String code = msgEditText.getText().toString().trim();
                 if (phone.length() == 0 || phone == null) {
-//                    JkAppUtil.showHintDiaolog(context, "请输入手机号", null);
-                    Toast.makeText(context, "请输入手机号", Toast.LENGTH_SHORT).show();
+                    AppUtil.showHintDiaolog(context, "请输入手机号", null);
                     return;
                 }
                 getMsg();
@@ -121,29 +118,38 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(JSONObject result, String state, String msg, String data) {
                             super.onSuccess(result, state, msg, data);
-                            if ("1".equals(state)) {
-                                String ticket = result.getJSONObject("Data").getString("Ticket");
-                                String param_id = result.getJSONObject("Data").getString("Param_Id");
-                                SPUtil.put(context, "ticket", ticket);
-                                SPUtil.put(context, "param_id", param_id);
+                            try {
 
-                                Set<String> tagSet = new LinkedHashSet<String>();
-                                tagSet.add("上彩");
-                                // 调用JPush API设置Tag
-                                mHandler.sendMessage(mHandler
-                                        .obtainMessage(
-                                                MSG_SET_TAGS,
-                                                tagSet));
-                                // 调用JPush API设置Alias
-                                mHandler.sendMessage(mHandler
-                                        .obtainMessage(
-                                                MSG_SET_ALIAS,
-                                                result.getJSONObject("Data").getString(
-                                                        "Tid")
-                                                        .replace(
-                                                                "-",
-                                                                "")));
-                                finish();
+                                if ("1".equals(state)) {
+                                    String ticket = result.getJSONObject("Data").getString("Ticket");
+                                    String user = DesUtil.DecryptDoNet(result.getJSONObject("Data").getString("User"), DesUtil.DesKey);
+
+                                    System.out.println("-----user------" + user);
+                                    JSONObject userObject = JSONObject.parseObject(user);
+                                    SPUtil.put(context, "ticket", ticket);
+                                    SPUtil.put(context, "param_id", userObject.getString("Param_Id"));
+
+                                    Set<String> tagSet = new LinkedHashSet<String>();
+                                    tagSet.add("上彩");
+                                    // 调用JPush API设置Tag
+                                    mHandler.sendMessage(mHandler
+                                            .obtainMessage(
+                                                    MSG_SET_TAGS,
+                                                    tagSet));
+                                    // 调用JPush API设置Alias
+                                    mHandler.sendMessage(mHandler
+                                            .obtainMessage(
+                                                    MSG_SET_ALIAS,
+                                                    userObject.getString(
+                                                            "Tid")
+                                                            .replace(
+                                                                    "-",
+                                                                    "")));
+                                    finish();
+                                }
+                            } catch (Exception e) {
+                                System.out.println("-----Exception-------" + e);
+                                e.printStackTrace();
                             }
                         }
 
@@ -214,6 +220,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             });
         } catch (Exception e) {
+            System.out.println("--------erro--------" + e.getMessage());
             e.printStackTrace();
         }
     }

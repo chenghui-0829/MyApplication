@@ -15,7 +15,7 @@
         android:background="@drawable/app_title_bg">
 
         <ImageView
-            android:id="@+id/dlk3_activity_back_icon"
+            android:id="@+id/address_activity_back_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"

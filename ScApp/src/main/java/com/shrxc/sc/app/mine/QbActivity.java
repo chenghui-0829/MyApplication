@@ -28,7 +28,7 @@ public class QbActivity extends AppCompatActivity {
         SystemBarUtil.SetStatusColor(this, R.drawable.app_title_bg);
     }
 
-    @OnClick({R.id.qb_activity_tx_layout, R.id.qb_activity_zjmx_layout})
+    @OnClick({R.id.qb_activity_tx_layout, R.id.qb_activity_zjmx_layout, R.id.qb_activity_bank_card_layout})
     public void onClick(View view) {
 
         switch (view.getId()) {
@@ -37,6 +37,9 @@ public class QbActivity extends AppCompatActivity {
                 break;
             case R.id.qb_activity_zjmx_layout:
                 startActivity(new Intent(context, ZjmxActivity.class));
+                break;
+            case R.id.qb_activity_bank_card_layout:
+                startActivity(new Intent(context, BankListActivity.class));
                 break;
         }
     }

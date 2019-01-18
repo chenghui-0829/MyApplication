@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/app_edit_bank_dialog_root_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/app_whilte_circle_color"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/app_edit_bank_dialog_change_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="12dp"
+                android:text="设为收款银行卡"
+                android:textColor="@color/app_blue_color_4d8cf5"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/app_select_photo_line_view"
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/app_line_color_e6e6e6" />
+
+            <TextView
+                android:id="@+id/app_edit_bank_dialog_delete_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="12dp"
+                android:text="解绑银行卡"
+                android:textColor="@color/app_red_color_fa3243"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/app_edit_bank_dialog_cancle_text"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/app_whilte_circle_color"
+            android:gravity="center_horizontal"
+            android:padding="12dp"
+            android:text="取消"
+            android:textColor="@color/app_blue_color_4d8cf5"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+</LinearLayout>

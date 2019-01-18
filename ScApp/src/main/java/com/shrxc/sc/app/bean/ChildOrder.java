@@ -17,6 +17,15 @@ public class ChildOrder implements Serializable {
     private String PlayType;
     private String Remark;
     private String MCN;
+    private String LastTime;
+
+    public String getLastTime() {
+        return LastTime;
+    }
+
+    public void setLastTime(String lastTime) {
+        LastTime = lastTime;
+    }
 
     public String getSheets() {
         return Sheets;

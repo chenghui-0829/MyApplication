@@ -16,6 +16,12 @@ public class Test {
     }
 
 
+    private void save() {
+
+
+    }
+
+
     private int getBetCountWithGamesCount(int count, int[] selects, int qs) {
 
         int result = 0;

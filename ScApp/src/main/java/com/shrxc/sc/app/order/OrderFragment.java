@@ -17,6 +17,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.shrxc.sc.app.BaseFragment;
 import com.shrxc.sc.app.LoginActivity;
 import com.shrxc.sc.app.R;
+import com.shrxc.sc.app.adapter.JzAdapterUtil;
 import com.shrxc.sc.app.bean.OrderEntity;
 import com.shrxc.sc.app.dntz.WaitOrderActivity;
 import com.shrxc.sc.app.http.HttpRequestUtil;
@@ -62,7 +63,6 @@ public class OrderFragment extends BaseFragment {
     }
 
     private void initData() {
-
         orderList = new ArrayList<>();
         Map<String, Object> params = new HashMap<>();
         params.put("pageStart", 1);
@@ -82,6 +82,7 @@ public class OrderFragment extends BaseFragment {
                         entity.setProTypeStr(object.getString("ProTypeStr"));
                         entity.setStatusStr(object.getString("StatusStr"));
                         entity.setTotalMoney(object.getString("TotalMoney"));
+                        entity.setBuyNum(object.getString("BuyNum"));
                         orderList.add(entity);
                     }
                     adapter = new ListAdapter();
@@ -135,6 +136,16 @@ public class OrderFragment extends BaseFragment {
                 holder = (ViewHolder) view.getTag();
             }
 
+            JSONObject object = JSONObject.parseObject(orderList.get(i).getBuyNum());
+            JSONArray footArray = object.getJSONArray("footBallBuyNumJson");
+            JSONObject conObject = footArray.getJSONObject(0);
+            String type = conObject.getString("playType");
+            String mcn = conObject.getString("mCN");
+            String sheets = conObject.getString("sheets");
+            String multiple = conObject.getString("multiple");
+            holder.conTextView.setText("竞足  " + multiple + "倍  " + JzAdapterUtil.getGgfsString(Integer.parseInt(type))
+                    + "  x" + sheets);
+
             holder.nameTextView.setText(orderList.get(i).getProTypeStr() + "(" + orderList.get(i).getMerchantName() + ")");
             holder.stateTextView.setText(orderList.get(i).getStatusStr().replace("订单已提交", ""));
             holder.moneyTextView.setText("￥" + orderList.get(i).getTotalMoney());
@@ -143,13 +154,13 @@ public class OrderFragment extends BaseFragment {
 
         private class ViewHolder {
 
-            private TextView nameTextView, stateTextView, moneyTextView;
+            private TextView nameTextView, stateTextView, moneyTextView, conTextView;
 
             public ViewHolder(View view) {
                 nameTextView = view.findViewById(R.id.order_fragment_list_order_name);
                 stateTextView = view.findViewById(R.id.order_fragment_list_order_state);
                 moneyTextView = view.findViewById(R.id.order_fragment_list_order_money);
-
+                conTextView = view.findViewById(R.id.order_fragment_list_order_conent);
             }
         }
     }

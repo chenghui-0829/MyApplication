@@ -165,7 +165,8 @@ public class GetAddressActivity extends AppCompatActivity {
 
     }
 
-    @OnClick({R.id.get_address_activity_fresh_icon, R.id.get_address_activity_search_layout, R.id.get_address_activity_city_text})
+    @OnClick({R.id.get_address_activity_fresh_icon, R.id.get_address_activity_search_layout, R.id.get_address_activity_city_text,
+            R.id.get_address_activity_back_icon})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.get_address_activity_fresh_icon:
@@ -188,6 +189,10 @@ public class GetAddressActivity extends AppCompatActivity {
                 intent.putExtra("city", mSelectCity);
                 startActivityForResult(intent, 0x123);
                 break;
+            case R.id.get_address_activity_back_icon:
+                finish();
+                break;
+
         }
     }
 
@@ -292,7 +297,7 @@ public class GetAddressActivity extends AppCompatActivity {
 
                 if (poiInfos != null && !"".equals(poiInfos)) {
 
-                    System.out.println("-------poiInfos------->"+poiInfos);
+                    System.out.println("-------poiInfos------->" + poiInfos);
                     //创建poiAdapter 将获取到的Poi数据传入，更新UI
                     PoiListAdapter poiAdapter = new PoiListAdapter(context, poiInfos);
                     poiListView.setAdapter(poiAdapter);

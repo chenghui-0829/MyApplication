@@ -15,6 +15,7 @@
         android:background="@drawable/app_title_bg">
 
         <ImageView
+            android:id="@+id/order_activity_back_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -55,7 +56,8 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -82,10 +84,11 @@
                     android:text="合计:" />
 
                 <TextView
+                    android:id="@+id/order_activity_total_money_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
-                    android:text="￥19820"
+                    android:text=""
                     android:textColor="@color/app_red_color_fa3243" />
 
                 <TextView

@@ -38,7 +38,7 @@ public class JzSpfElvAdapter extends BaseExpandableListAdapter {
         this.games = games;
         int childCount = 0;
         for (int i = 0; i < games.size(); i++) {
-            childCount += games.get(i).getGameNum();
+            childCount += games.get(i).getGames().size();
         }
         childs = JzAdapterUtil.initChilds(games == null ? 0 : games.size(), childCount, 4);
     }
@@ -199,6 +199,11 @@ public class JzSpfElvAdapter extends BaseExpandableListAdapter {
         return JzAdapterUtil.getSelectList(childs, games);
     }
 
+
+    public void clearSelect() {
+        JzAdapterUtil.clearSelected(childs, JzSpfElvAdapter.this);
+    }
+
     @Override
     public void notifyDataSetChanged() {
         super.notifyDataSetChanged();
@@ -225,7 +230,10 @@ public class JzSpfElvAdapter extends BaseExpandableListAdapter {
 
             for (int i = 0; i < ggfsList.size(); i++) {
                 if (i < list.size()) {
-                    if (i > 0) {
+                    if (i == 0) {
+                        ggfsList.get(i).setEnabled(false);
+                        ggfsList.get(i).setBackgroundResource(R.drawable.app_gray_color_e6e6e6);
+                    } else {
                         ggfsList.get(i).setEnabled(true);
                         if (JczqActivity.ggfsMap.get(i) != 1) {
                             ggfsList.get(i).setBackgroundResource(R.drawable.app_gray_stroke_circle_color);

@@ -49,9 +49,9 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
         this.games = games;
         int childCount = 0;
         for (int i = 0; i < games.size(); i++) {
-            childCount += games.get(i).getGameNum();
+            childCount += games.get(i).getGames().size();
         }
-        childs = JzAdapterUtil.initChilds(games == null ? 0 : games.size(), childCount, 52);
+        childs = JzAdapterUtil.initChilds(games == null ? 0 : games.size(), childCount, 55);
     }
 
     @Override
@@ -108,7 +108,7 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
 
         gvh.nyrText.setText(games.get(i).getTime());
         gvh.xqText.setText(AppUtil.dateToWeek(games.get(i).getTime()));
-        gvh.csText.setText(games.get(i).getGameNum() + "场比赛");
+        gvh.csText.setText(games.get(i).getGames().size() + "场比赛");
         return view;
     }
 
@@ -130,7 +130,7 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
             if (key > 0 && childs.get(gPos).get(cPos).get(key) == 1) {
                 selected++;
             }
-            if (key < 4) {
+            if (key < 7) {
                 if (key == 0) {
                     if (childs.get(gPos).get(cPos).get(key) == 0) {
                         cvh.fxDetailLayout.setVisibility(View.GONE);
@@ -155,6 +155,23 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
         }
 
 
+        String isCloseFrq = games.get(gPos).getGames().get(cPos).getIsSPF();
+        String isCloseRq = games.get(gPos).getGames().get(cPos).getIsRSPF();
+
+
+        if (isCloseFrq.equals("0") || isCloseFrq.equals("1")) {
+            cvh.frqText.setVisibility(View.VISIBLE);
+        } else if (isCloseFrq.equals("2")) {
+            cvh.frqText.setVisibility(View.GONE);
+        }
+
+        if (isCloseRq.equals("0") || isCloseRq.equals("1")) {
+            cvh.rqText.setVisibility(View.VISIBLE);
+        } else if (isCloseRq.equals("2")) {
+            cvh.rqText.setVisibility(View.GONE);
+        }
+
+
         cvh.xqTextView.setText(games.get(gPos).getGames().get(cPos).getGameid());
         cvh.typeTextView.setText(games.get(gPos).getGames().get(cPos).getLeague());
         cvh.zdNameTextView.setText(games.get(gPos).getGames().get(cPos).getHometeam());
@@ -162,6 +179,9 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
         ((TextView) cvh.pLayout.getChildAt(1)).setText(games.get(gPos).getGames().get(cPos).getPpl());
         cvh.kdNameTextView.setText(games.get(gPos).getGames().get(cPos).getGuestteam());
         ((TextView) cvh.fLayout.getChildAt(1)).setText(games.get(gPos).getGames().get(cPos).getFpl());
+        ((TextView) cvh.rsLayout.getChildAt(1)).setText(games.get(gPos).getGames().get(cPos).getRspl());
+        ((TextView) cvh.rpLayout.getChildAt(1)).setText(games.get(gPos).getGames().get(cPos).getRppl());
+        ((TextView) cvh.rfLayout.getChildAt(1)).setText(games.get(gPos).getGames().get(cPos).getRfpl());
 
         String endTime = AppUtil.formatString(games.get(gPos).getGames().get(cPos).getEndtime().replace("T", " "), "HH:mm");
         cvh.jzrqTextView.setText(endTime + "截止");
@@ -170,11 +190,11 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
         if (rqs.contains("-")) {
             rqs = rqs.replace("-", "");
             cvh.rqLayout.setBackgroundResource(R.color.app_green_color_1db53a);
-            cvh.rqTextView.setText("-" + AppUtil.sswrNum(Double.parseDouble(rqs), 0));
+            cvh.rqTextView.setText("主-" + AppUtil.sswrNum(Double.parseDouble(rqs), 0));
         } else if (rqs.contains("+")) {
             rqs = rqs.replace("+", "");
             cvh.rqLayout.setBackgroundResource(R.color.app_red_color_fa3243);
-            cvh.rqTextView.setText("+" + AppUtil.sswrNum(Double.parseDouble(rqs), 0));
+            cvh.rqTextView.setText("主+" + AppUtil.sswrNum(Double.parseDouble(rqs), 0));
         }
 
         cvh.qbxxLayout.setOnClickListener(new View.OnClickListener() {
@@ -246,7 +266,65 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
                 JzAdapterUtil.changeViewSet(context, JzDgtzElvAdapter.this, gPos, cPos, 3, childs, games);
             }
         });
+        /**
+         * 让球-胜
+         */
+        cvh.rsLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                for (Integer key : childs.get(gPos).get(cPos).keySet()) {
+                    if (key > 3 && key < 7) {
+                    } else {
+                        if (key != 0) {
+                            if (childs.get(gPos).get(cPos).get(key) == 1) {
+                                childs.get(gPos).get(cPos).put(key, 0);
+                            }
+                        }
+                    }
+                }
+
+                JzAdapterUtil.changeViewSet(context, JzDgtzElvAdapter.this, gPos, cPos, 4, childs, games);
+            }
+        });
+        /**
+         * 让球-平
+         */
+        cvh.rpLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for (Integer key : childs.get(gPos).get(cPos).keySet()) {
+                    if (key > 3 && key < 7) {
+                    } else {
+                        if (key != 0) {
+                            if (childs.get(gPos).get(cPos).get(key) == 1) {
+                                childs.get(gPos).get(cPos).put(key, 0);
+                            }
+                        }
+                    }
+                }
+                JzAdapterUtil.changeViewSet(context, JzDgtzElvAdapter.this, gPos, cPos, 5, childs, games);
+            }
+        });
+        /**
+         * 让球-负
+         */
+        cvh.rfLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for (Integer key : childs.get(gPos).get(cPos).keySet()) {
+                    if (key > 3 && key < 7) {
+                    } else {
+                        if (key != 0) {
+                            if (childs.get(gPos).get(cPos).get(key) == 1) {
+                                childs.get(gPos).get(cPos).put(key, 0);
+                            }
+                        }
+                    }
+                }
+                JzAdapterUtil.changeViewSet(context, JzDgtzElvAdapter.this, gPos, cPos, 6, childs, games);
+            }
+        });
         /***
          * 详细赛事分析
          */
@@ -258,6 +336,17 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
                 bundle.putSerializable("game", games.get(gPos).getGames().get(cPos));
                 intent.putExtras(bundle);
                 context.startActivity(intent);
+            }
+        });
+
+        cvh.rqText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+        cvh.frqText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
             }
         });
         return view;
@@ -277,15 +366,20 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
                     JzTzTypeEntity entity = new JzTzTypeEntity();
 
                     JSONObject spfObject = object.getJSONObject("SPF");
-                    entity.setSpl(spfObject.getString("h"));
-                    entity.setPpl(spfObject.getString("d"));
-                    entity.setFpl(spfObject.getString("a"));
+                    if (spfObject != null) {
+                        entity.setSpl(spfObject.getString("h"));
+                        entity.setPpl(spfObject.getString("d"));
+                        entity.setFpl(spfObject.getString("a"));
+                    }
+
 
                     JSONObject rspfObject = object.getJSONObject("RQ");
-                    entity.setRspl(rspfObject.getString("h"));
-                    entity.setRppl(rspfObject.getString("d"));
-                    entity.setRfpl(rspfObject.getString("a"));
-                    entity.setRqNum(rspfObject.getString("RQ"));
+                    if (rspfObject != null) {
+                        entity.setRspl(rspfObject.getString("h"));
+                        entity.setRppl(rspfObject.getString("d"));
+                        entity.setRfpl(rspfObject.getString("a"));
+                        entity.setRqNum(rspfObject.getString("RQ"));
+                    }
 
                     JSONObject bfObject = object.getJSONObject("BF");
                     entity.setBf_fqt(bfObject.getString("s_1_a"));
@@ -364,7 +458,8 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
         View view = LayoutInflater.from(context).inflate(
                 R.layout.jz_dgtz_elv_child_qbxx_dialog_layout, null);
 
-        final GridLayout sfLayout = view.findViewById(R.id.jz_dgtz_elv_qbxx_dialog_sf_layout);
+        final GridLayout sfLayout = view.findViewById(R.id.jz_dgtz_elv_qbxx_dialog_frq_grid);
+        final GridLayout rqsfLayout = view.findViewById(R.id.jz_dgtz_elv_qbxx_dialog_rq_grid);
         final GridLayout bfLayout = view.findViewById(R.id.jz_dgtz_elv_qbxx_dialog_bf_layout);
         final GridLayout zjqLayout = view.findViewById(R.id.jz_dgtz_elv_qbxx_dialog_zjq_layout);
         final GridLayout bcqLayout = view.findViewById(R.id.jz_dgtz_elv_qbxx_dialog_bqc_layout);
@@ -374,6 +469,26 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
         final TextView zdNameTextView = view.findViewById(R.id.jz_dgtz_elv_qbxx_dialog_zd_name_text);
         final TextView kdNameTextView = view.findViewById(R.id.jz_dgtz_elv_qbxx_dialog_kd_name_text);
         final LinearLayout rqLayout = view.findViewById(R.id.jz_dgtz_elv_qbxx_dialog_rq_layout);
+
+        TextView rqCloseText = view.findViewById(R.id.jz_dgtz_dialog_close_rq_text);
+        TextView frqCloseText = view.findViewById(R.id.jz_dgtz_dialog_close_frq_text);
+
+        String isCloseFrq = games.get(gPos).getGames().get(cPos).getIsSPF();
+        String isCloseRq = games.get(gPos).getGames().get(cPos).getIsRSPF();
+
+
+        if (isCloseFrq.equals("0") || isCloseFrq.equals("1")) {
+            frqCloseText.setVisibility(View.VISIBLE);
+        } else if (isCloseFrq.equals("2")) {
+            frqCloseText.setVisibility(View.GONE);
+        }
+
+        if (isCloseRq.equals("0") || isCloseRq.equals("1")) {
+            rqCloseText.setVisibility(View.VISIBLE);
+        } else if (isCloseRq.equals("2")) {
+            rqCloseText.setVisibility(View.GONE);
+        }
+
         dialog.setContentView(view);
         dialog.show();
         Window dialogWindow = dialog.getWindow();
@@ -385,20 +500,12 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
 
         zdNameTextView.setText(games.get(gPos).getGames().get(cPos).getHometeam());
         kdNameTextView.setText(games.get(gPos).getGames().get(cPos).getGuestteam());
-        String rqs = entity.getRqNum();
-        if (rqs.contains("-")) {
-            rqs = rqs.replace("-", "");
-            rqLayout.setBackgroundResource(R.color.app_green_color_1db53a);
-            rqTextView.setText("-" + AppUtil.sswrNum(Double.parseDouble(rqs), 0));
-        } else if (rqs.contains("+")) {
-            rqs = rqs.replace("+", "");
-            rqLayout.setBackgroundResource(R.color.app_red_color_fa3243);
-            rqTextView.setText("+" + AppUtil.sswrNum(Double.parseDouble(rqs), 0));
-        }
-
         ((TextView) ((MyCheckLinearLayout) sfLayout.getChildAt(0)).getChildAt(1)).setText(entity.getSpl());
         ((TextView) ((MyCheckLinearLayout) sfLayout.getChildAt(1)).getChildAt(1)).setText(entity.getPpl());
         ((TextView) ((MyCheckLinearLayout) sfLayout.getChildAt(2)).getChildAt(1)).setText(entity.getFpl());
+        ((TextView) ((MyCheckLinearLayout) rqsfLayout.getChildAt(0)).getChildAt(1)).setText(entity.getRspl());
+        ((TextView) ((MyCheckLinearLayout) rqsfLayout.getChildAt(1)).getChildAt(1)).setText(entity.getRfpl());
+        ((TextView) ((MyCheckLinearLayout) rqsfLayout.getChildAt(2)).getChildAt(1)).setText(entity.getRppl());
 
         ((TextView) ((MyCheckLinearLayout) bfLayout.getChildAt(0)).getChildAt(1)).setText(entity.getBf_1_0());
         ((TextView) ((MyCheckLinearLayout) bfLayout.getChildAt(1)).getChildAt(1)).setText(entity.getBf_2_0());
@@ -451,9 +558,23 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
         ((TextView) ((MyCheckLinearLayout) bcqLayout.getChildAt(7)).getChildAt(1)).setText(entity.getBqc_fp());
         ((TextView) ((MyCheckLinearLayout) bcqLayout.getChildAt(8)).getChildAt(1)).setText(entity.getBqc_ff());
 
+        String rqs = entity.getRqNum();
+        if (rqs.contains("-")) {
+            rqs = rqs.replace("-", "");
+            rqLayout.setBackgroundResource(R.color.app_green_color_1db53a);
+            rqTextView.setText("-" + AppUtil.sswrNum(Double.parseDouble(rqs), 0));
+        } else if (rqs.contains("+")) {
+            rqs = rqs.replace("+", "");
+            rqLayout.setBackgroundResource(R.color.app_red_color_fa3243);
+            rqTextView.setText("+" + AppUtil.sswrNum(Double.parseDouble(rqs), 0));
+        }
+
         final List<MyCheckLinearLayout> allSelect = new ArrayList<>();
         for (int i = 0; i < sfLayout.getChildCount(); i++) {
             allSelect.add((MyCheckLinearLayout) sfLayout.getChildAt(i));
+        }
+        for (int i = 0; i < rqsfLayout.getChildCount(); i++) {
+            allSelect.add((MyCheckLinearLayout) rqsfLayout.getChildAt(i));
         }
         for (int i = 0; i < bfLayout.getChildCount(); i++) {
             allSelect.add((MyCheckLinearLayout) bfLayout.getChildAt(i));
@@ -471,7 +592,10 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
                 dialoChangeViewState(allSelect.get(key - 1));
             }
         }
-        final GridLayout layouts[] = {sfLayout, bfLayout, zjqLayout, bcqLayout};
+
+
+        final GridLayout layouts[] = {sfLayout, rqsfLayout, bfLayout, zjqLayout, bcqLayout};
+
         sureTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -495,6 +619,18 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
             }
         });
 
+        rqCloseText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        frqCloseText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         sfLayout.getChildAt(0).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -514,222 +650,240 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
                 changeLayoutCheckState(layouts, 0, 2);
             }
         });
-
-        bfLayout.getChildAt(0).setOnClickListener(new View.OnClickListener() {
+        rqsfLayout.getChildAt(0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 changeLayoutCheckState(layouts, 1, 0);
             }
         });
-        bfLayout.getChildAt(1).setOnClickListener(new View.OnClickListener() {
+        rqsfLayout.getChildAt(1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 changeLayoutCheckState(layouts, 1, 1);
             }
         });
-        bfLayout.getChildAt(2).setOnClickListener(new View.OnClickListener() {
+        rqsfLayout.getChildAt(2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 changeLayoutCheckState(layouts, 1, 2);
             }
         });
+
+        bfLayout.getChildAt(0).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeLayoutCheckState(layouts, 2, 0);
+            }
+        });
+        bfLayout.getChildAt(1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeLayoutCheckState(layouts, 2, 1);
+            }
+        });
+        bfLayout.getChildAt(2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeLayoutCheckState(layouts, 2, 2);
+            }
+        });
         bfLayout.getChildAt(3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 3);
+                changeLayoutCheckState(layouts, 2, 3);
             }
         });
         bfLayout.getChildAt(4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 4);
+                changeLayoutCheckState(layouts, 2, 4);
             }
         });
         bfLayout.getChildAt(5).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 5);
+                changeLayoutCheckState(layouts, 2, 5);
             }
         });
         bfLayout.getChildAt(6).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 6);
+                changeLayoutCheckState(layouts, 2, 6);
             }
         });
         bfLayout.getChildAt(7).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 7);
+                changeLayoutCheckState(layouts, 2, 7);
             }
         });
         bfLayout.getChildAt(8).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 8);
+                changeLayoutCheckState(layouts, 2, 8);
             }
         });
         bfLayout.getChildAt(9).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 9);
+                changeLayoutCheckState(layouts, 2, 9);
             }
         });
         bfLayout.getChildAt(10).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 10);
+                changeLayoutCheckState(layouts, 2, 10);
             }
         });
         bfLayout.getChildAt(11).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 11);
+                changeLayoutCheckState(layouts, 2, 11);
             }
         });
         bfLayout.getChildAt(12).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 12);
+                changeLayoutCheckState(layouts, 2, 12);
             }
         });
         bfLayout.getChildAt(13).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 13);
+                changeLayoutCheckState(layouts, 2, 13);
             }
         });
         bfLayout.getChildAt(14).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 14);
+                changeLayoutCheckState(layouts, 2, 14);
             }
         });
         bfLayout.getChildAt(15).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 15);
+                changeLayoutCheckState(layouts, 2, 15);
             }
         });
         bfLayout.getChildAt(16).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 16);
+                changeLayoutCheckState(layouts, 2, 16);
             }
         });
         bfLayout.getChildAt(17).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 17);
+                changeLayoutCheckState(layouts, 2, 17);
             }
         });
         bfLayout.getChildAt(18).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 18);
+                changeLayoutCheckState(layouts, 2, 18);
             }
         });
         bfLayout.getChildAt(19).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 19);
+                changeLayoutCheckState(layouts, 2, 19);
             }
         });
         bfLayout.getChildAt(20).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 20);
+                changeLayoutCheckState(layouts, 2, 20);
             }
         });
         bfLayout.getChildAt(21).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 21);
+                changeLayoutCheckState(layouts, 2, 21);
             }
         });
         bfLayout.getChildAt(22).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 22);
+                changeLayoutCheckState(layouts, 2, 22);
             }
         });
         bfLayout.getChildAt(23).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 23);
+                changeLayoutCheckState(layouts, 2, 23);
             }
         });
         bfLayout.getChildAt(24).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 24);
+                changeLayoutCheckState(layouts, 2, 24);
             }
         });
         bfLayout.getChildAt(25).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 25);
+                changeLayoutCheckState(layouts, 2, 25);
             }
         });
         bfLayout.getChildAt(26).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 26);
+                changeLayoutCheckState(layouts, 2, 26);
             }
         });
         bfLayout.getChildAt(27).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 27);
+                changeLayoutCheckState(layouts, 2, 27);
             }
         });
         bfLayout.getChildAt(28).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 28);
+                changeLayoutCheckState(layouts, 2, 28);
             }
         });
         bfLayout.getChildAt(29).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 29);
+                changeLayoutCheckState(layouts, 2, 29);
             }
         });
         bfLayout.getChildAt(30).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 1, 30);
+                changeLayoutCheckState(layouts, 2, 30);
             }
         });
 
         zjqLayout.getChildAt(0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 2, 0);
+                changeLayoutCheckState(layouts, 3, 0);
             }
         });
         zjqLayout.getChildAt(1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 2, 1);
+                changeLayoutCheckState(layouts, 3, 1);
             }
         });
         zjqLayout.getChildAt(2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 2, 2);
+                changeLayoutCheckState(layouts, 3, 2);
             }
         });
         zjqLayout.getChildAt(3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 2, 3);
+                changeLayoutCheckState(layouts, 3, 3);
             }
         });
         zjqLayout.getChildAt(4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 2, 4);
+                changeLayoutCheckState(layouts, 3, 4);
             }
         });
         zjqLayout.getChildAt(5).setOnClickListener(new View.OnClickListener() {
@@ -741,71 +895,72 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
         zjqLayout.getChildAt(6).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 2, 6);
+                changeLayoutCheckState(layouts, 3, 6);
             }
         });
         zjqLayout.getChildAt(7).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 2, 7);
+                changeLayoutCheckState(layouts, 3, 7);
             }
         });
 
         bcqLayout.getChildAt(0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 3, 0);
+                changeLayoutCheckState(layouts, 4, 0);
             }
         });
         bcqLayout.getChildAt(1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 3, 1);
+                changeLayoutCheckState(layouts, 4, 1);
             }
         });
         bcqLayout.getChildAt(2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 3, 2);
+                changeLayoutCheckState(layouts, 4, 2);
             }
         });
         bcqLayout.getChildAt(3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 3, 3);
+                changeLayoutCheckState(layouts, 4, 3);
             }
         });
         bcqLayout.getChildAt(4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 3, 4);
+                changeLayoutCheckState(layouts, 4, 4);
             }
         });
         bcqLayout.getChildAt(5).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 3, 5);
+                changeLayoutCheckState(layouts, 4, 5);
             }
         });
         bcqLayout.getChildAt(6).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 3, 6);
+                changeLayoutCheckState(layouts, 4, 6);
             }
         });
         bcqLayout.getChildAt(7).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 3, 7);
+                changeLayoutCheckState(layouts, 4, 7);
             }
         });
         bcqLayout.getChildAt(8).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeLayoutCheckState(layouts, 3, 8);
+                changeLayoutCheckState(layouts, 4, 8);
             }
         });
     }
+
 
     private void changeLayoutCheckState(GridLayout layouts[], int index, int click) {
 
@@ -851,6 +1006,10 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
         return JzAdapterUtil.getSelectList(childs, games);
     }
 
+    public void clearSelect() {
+        JzAdapterUtil.clearSelected(childs, JzDgtzElvAdapter.this);
+    }
+
     @Override
     public void notifyDataSetChanged() {
         super.notifyDataSetChanged();
@@ -880,8 +1039,8 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
     private class ChildViewHolder {
 
         private TextView zdNameTextView, kdNameTextView, selectedTextView, selectTextview, xqTextView, typeTextView,
-                jzrqTextView, rqTextView, xxssfxTextView;
-        private LinearLayout qbxxLayout, fxLayout, sLayout, pLayout, fLayout, fxDetailLayout;
+                jzrqTextView, rqTextView, xxssfxTextView, frqText, rqText;
+        private LinearLayout qbxxLayout, fxLayout, sLayout, pLayout, fLayout, rsLayout, rpLayout, rfLayout, fxDetailLayout;
         private ImageView fxImageView;
         private GridLayout selectLayout;
         private RelativeLayout rqLayout;
@@ -890,9 +1049,12 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
 
             qbxxLayout = view.findViewById(R.id.jz_dgtz_elv_qbxx_layout);
             fxLayout = view.findViewById(R.id.jz_dgtz_elv_child_fx_layout);
-            sLayout = view.findViewById(R.id.jz_dgtz_elv_s_layout);
-            pLayout = view.findViewById(R.id.jz_dgtz_elv_p_layout);
-            fLayout = view.findViewById(R.id.jz_dgtz_elv_f_layout);
+            sLayout = view.findViewById(R.id.jz_dgtz_elv_frq_s_layout);
+            pLayout = view.findViewById(R.id.jz_dgtz_elv_frq_p_layout);
+            fLayout = view.findViewById(R.id.jz_dgtz_elv_frq_f_layout);
+            rsLayout = view.findViewById(R.id.jz_dgtz_elv_rq_s_layout);
+            rpLayout = view.findViewById(R.id.jz_dgtz_elv_rq_p_layout);
+            rfLayout = view.findViewById(R.id.jz_dgtz_elv_rq_f_layout);
             fxDetailLayout = view.findViewById(R.id.jz_dgtz_elv_fx_detail_layout);
             fxImageView = view.findViewById(R.id.jz_dgtz_elv_child_fx_icon);
             selectLayout = view.findViewById(R.id.jz_dgtz_elv_select_layout);
@@ -906,6 +1068,8 @@ public class JzDgtzElvAdapter extends BaseExpandableListAdapter {
             zdNameTextView = view.findViewById(R.id.jz_dgtz_elv_child_zd_name_text);
             kdNameTextView = view.findViewById(R.id.jz_dgtz_elv_child_kd_name_text);
             xxssfxTextView = view.findViewById(R.id.jz_dgtz_child_ssfx_text);
+            rqText = view.findViewById(R.id.jz_dgtz_elv_close_rq_text);
+            frqText = view.findViewById(R.id.jz_dgtz_elv_close_frq_text);
         }
     }
 }

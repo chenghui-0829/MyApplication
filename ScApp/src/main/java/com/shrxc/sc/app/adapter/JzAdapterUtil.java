@@ -27,6 +27,26 @@ import java.util.concurrent.ConcurrentHashMap;
 public class JzAdapterUtil {
 
 
+    /**
+     * 清空选择
+     */
+    public static void clearSelected(Map<Integer, Map<Integer, Map<Integer, Integer>>> childs, BaseExpandableListAdapter adapter) {
+
+        for (Integer key : childs.keySet()) {
+            Map<Integer, Map<Integer, Integer>> gMap = childs.get(key);
+            for (Integer ckey : gMap.keySet()) {
+                Map<Integer, Integer> cMap = gMap.get(ckey);
+                for (Integer index : cMap.keySet()) {
+                    if (cMap.get(index) == 1) {
+                        cMap.put(index, 0);
+                    }
+                }
+            }
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+
     public static Map<Integer, Map<Integer, Map<Integer, Integer>>> initChilds(int groupCount, int childCount, int selectCount) {
 
         Map<Integer, Map<Integer, Map<Integer, Integer>>> childs = new HashMap<>();
@@ -897,6 +917,36 @@ public class JzAdapterUtil {
         return ggfsStr;
     }
 
+    public static String getGgfsString(int ggfs) {
+
+        String ggfsStr = "";
+        switch (ggfs) {
+            case 6:
+                ggfsStr = "胜平负";
+                break;
+            case 40:
+                ggfsStr = "让球胜平负";
+                break;
+            case 10:
+                ggfsStr = "混合过关";
+                break;
+            case 7:
+                ggfsStr = "比分";
+                break;
+            case 8:
+                ggfsStr = "进球数";
+                break;
+            case 9:
+                ggfsStr = "半全场";
+                break;
+            case 39:
+                ggfsStr = "单关投注";
+                break;
+        }
+        return ggfsStr;
+    }
+
+
     public static String[] getSelectType(int type, int ggfs, JzChildGameEntity entity) {
 
         String[] typeStr = new String[2];
@@ -1375,6 +1425,14 @@ public class JzAdapterUtil {
                 }
                 break;
             case 6:
+                String dgrq = entity.getRangqiu();
+                if (dgrq.contains("-")) {
+                    dgrq = dgrq.replace("-", "");
+                    select = "主-" + AppUtil.sswrNum(Double.parseDouble(dgrq), 0) + "  ";
+                } else if (dgrq.contains("+")) {
+                    dgrq = dgrq.replace("+", "");
+                    select = "主+" + AppUtil.sswrNum(Double.parseDouble(dgrq), 0) + "  ";
+                }
                 switch (type) {
                     case 1:
                         typeStr[0] = "胜";
@@ -1389,194 +1447,206 @@ public class JzAdapterUtil {
                         typeStr[1] = entity.getFpl();
                         break;
                     case 4:
+                        typeStr[0] = select + "胜";
+                        typeStr[1] = entity.getRspl();
+                        break;
+                    case 5:
+                        typeStr[0] = select + "平";
+                        typeStr[1] = entity.getRppl();
+                        break;
+                    case 6:
+                        typeStr[0] = select + "负";
+                        typeStr[1] = entity.getRfpl();
+                        break;
+                    case 7:
                         typeStr[0] = "1:0";
                         typeStr[1] = entity.getTzTypeEntity().getBf_1_0();
                         break;
-                    case 5:
+                    case 8:
                         typeStr[0] = "2:0";
                         typeStr[1] = entity.getTzTypeEntity().getBf_2_0();
                         break;
-                    case 6:
+                    case 9:
                         typeStr[0] = "2:1";
                         typeStr[1] = entity.getTzTypeEntity().getBf_2_1();
                         break;
-                    case 7:
+                    case 10:
                         typeStr[0] = "3:0";
                         typeStr[1] = entity.getTzTypeEntity().getBf_3_0();
                         break;
-                    case 8:
+                    case 11:
                         typeStr[0] = "3:1";
                         typeStr[1] = entity.getTzTypeEntity().getBf_3_1();
                         break;
-                    case 9:
+                    case 12:
                         typeStr[0] = "3:2";
                         typeStr[1] = entity.getTzTypeEntity().getBf_3_2();
                         break;
-                    case 10:
+                    case 13:
                         typeStr[0] = "4:0";
                         typeStr[1] = entity.getTzTypeEntity().getBf_4_0();
                         break;
-                    case 11:
+                    case 14:
                         typeStr[0] = "4:1";
                         typeStr[1] = entity.getTzTypeEntity().getBf_4_1();
                         break;
-                    case 12:
+                    case 15:
                         typeStr[0] = "4:2";
                         typeStr[1] = entity.getTzTypeEntity().getBf_4_2();
                         break;
-                    case 13:
+                    case 16:
                         typeStr[0] = "5:0";
                         typeStr[1] = entity.getTzTypeEntity().getBf_5_0();
                         break;
-                    case 14:
+                    case 17:
                         typeStr[0] = "5:1";
                         typeStr[1] = entity.getTzTypeEntity().getBf_5_1();
                         break;
-                    case 15:
+                    case 18:
                         typeStr[0] = "5:2";
                         typeStr[1] = entity.getTzTypeEntity().getBf_5_2();
                         break;
-                    case 16:
+                    case 19:
                         typeStr[0] = "胜其它";
                         typeStr[1] = entity.getTzTypeEntity().getBf_sqt();
                         break;
-                    case 17:
+                    case 20:
                         typeStr[0] = "0:0";
                         typeStr[1] = entity.getTzTypeEntity().getBf_0_0();
                         break;
-                    case 18:
+                    case 21:
                         typeStr[0] = "1:1";
                         typeStr[1] = entity.getTzTypeEntity().getBf_1_1();
                         break;
-                    case 19:
+                    case 22:
                         typeStr[0] = "2:2";
                         typeStr[1] = entity.getTzTypeEntity().getBf_2_2();
                         break;
-                    case 20:
+                    case 23:
                         typeStr[0] = "3:3";
                         typeStr[1] = entity.getTzTypeEntity().getBf_3_3();
                         break;
-                    case 21:
+                    case 24:
                         typeStr[0] = "平其它";
                         typeStr[1] = entity.getTzTypeEntity().getBf_pqt();
                         break;
-                    case 22:
+                    case 25:
                         typeStr[0] = "0:1";
                         typeStr[1] = entity.getTzTypeEntity().getBf_0_1();
                         break;
-                    case 23:
+                    case 26:
                         typeStr[0] = "0:2";
                         typeStr[1] = entity.getTzTypeEntity().getBf_0_2();
                         break;
-                    case 24:
+                    case 27:
                         typeStr[0] = "1:2";
                         typeStr[1] = entity.getTzTypeEntity().getBf_1_2();
                         break;
-                    case 25:
+                    case 28:
                         typeStr[0] = "0:3";
                         typeStr[1] = entity.getTzTypeEntity().getBf_0_3();
                         break;
-                    case 26:
+                    case 29:
                         typeStr[0] = "1:3";
                         typeStr[1] = entity.getTzTypeEntity().getBf_1_3();
                         break;
-                    case 27:
+                    case 30:
                         typeStr[0] = "2:3";
                         typeStr[1] = entity.getTzTypeEntity().getBf_2_3();
                         break;
-                    case 28:
+                    case 31:
                         typeStr[0] = "0:4";
                         typeStr[1] = entity.getTzTypeEntity().getBf_0_4();
                         break;
-                    case 29:
+                    case 32:
                         typeStr[0] = "1:4";
                         typeStr[1] = entity.getTzTypeEntity().getBf_1_4();
                         break;
-                    case 30:
+                    case 33:
                         typeStr[0] = "2:4";
                         typeStr[1] = entity.getTzTypeEntity().getBf_2_4();
                         break;
-                    case 31:
+                    case 34:
                         typeStr[0] = "0:5";
                         typeStr[1] = entity.getTzTypeEntity().getBf_0_5();
                         break;
-                    case 32:
+                    case 35:
                         typeStr[0] = "1:5";
                         typeStr[1] = entity.getTzTypeEntity().getBf_1_5();
                         break;
-                    case 33:
+                    case 36:
                         typeStr[0] = "2:5";
                         typeStr[1] = entity.getTzTypeEntity().getBf_2_5();
                         break;
-                    case 34:
+                    case 37:
                         typeStr[0] = "负其它";
                         typeStr[1] = entity.getTzTypeEntity().getBf_fqt();
                         break;
-                    case 35:
+                    case 38:
                         typeStr[0] = "0";
                         typeStr[1] = entity.getTzTypeEntity().getJqs_0();
                         break;
-                    case 36:
+                    case 39:
                         typeStr[0] = "1";
                         typeStr[1] = entity.getTzTypeEntity().getJqs_1();
                         break;
-                    case 37:
+                    case 40:
                         typeStr[0] = "2";
                         typeStr[1] = entity.getTzTypeEntity().getJqs_2();
                         break;
-                    case 38:
+                    case 41:
                         typeStr[0] = "3";
                         typeStr[1] = entity.getTzTypeEntity().getJqs_3();
                         break;
-                    case 39:
+                    case 42:
                         typeStr[0] = "4";
                         typeStr[1] = entity.getTzTypeEntity().getJqs_4();
                         break;
-                    case 40:
+                    case 43:
                         typeStr[0] = "5";
                         typeStr[1] = entity.getTzTypeEntity().getJqs_5();
                         break;
-                    case 41:
+                    case 44:
                         typeStr[0] = "6";
                         typeStr[1] = entity.getTzTypeEntity().getJqs_6();
                         break;
-                    case 42:
+                    case 45:
                         typeStr[0] = "7+";
                         typeStr[1] = entity.getTzTypeEntity().getJqs_7();
                         break;
-                    case 43:
+                    case 46:
                         typeStr[0] = "胜胜";
                         typeStr[1] = entity.getTzTypeEntity().getBqc_ss();
                         break;
-                    case 44:
+                    case 47:
                         typeStr[0] = "胜平";
                         typeStr[1] = entity.getTzTypeEntity().getBqc_sp();
                         break;
-                    case 45:
+                    case 48:
                         typeStr[0] = "胜负";
                         typeStr[1] = entity.getTzTypeEntity().getBqc_sf();
                         break;
-                    case 46:
+                    case 49:
                         typeStr[0] = "平胜";
                         typeStr[1] = entity.getTzTypeEntity().getBqc_ps();
                         break;
-                    case 47:
+                    case 50:
                         typeStr[0] = "平平";
                         typeStr[1] = entity.getTzTypeEntity().getBqc_pp();
                         break;
-                    case 48:
+                    case 51:
                         typeStr[0] = "平负";
                         typeStr[1] = entity.getTzTypeEntity().getBqc_pf();
                         break;
-                    case 49:
+                    case 52:
                         typeStr[0] = "负胜";
                         typeStr[1] = entity.getTzTypeEntity().getBqc_fs();
                         break;
-                    case 50:
+                    case 53:
                         typeStr[0] = "负平";
                         typeStr[1] = entity.getTzTypeEntity().getBqc_fp();
                         break;
-                    case 51:
+                    case 54:
                         typeStr[0] = "负负";
                         typeStr[1] = entity.getTzTypeEntity().getBqc_ff();
                         break;

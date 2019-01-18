@@ -11,6 +11,15 @@ public class OrderEntity {
     private String StatusStr;
     private String MerchantName;
     private String TotalMoney;
+    private String BuyNum;
+
+    public String getBuyNum() {
+        return BuyNum;
+    }
+
+    public void setBuyNum(String buyNum) {
+        BuyNum = buyNum;
+    }
 
     public String getOAID() {
         return OAID;

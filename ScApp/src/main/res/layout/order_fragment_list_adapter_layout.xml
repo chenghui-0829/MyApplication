@@ -47,17 +47,10 @@
             android:background="@color/app_line_color_e6e6e6" />
 
         <TextView
+            android:id="@+id/order_fragment_list_order_conent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="竞足  单场  99倍  胜平负  x20"
-            android:textColor="@color/app_text_color_666666"
-            android:textSize="14dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="竞足  2串1  10倍  胜平负  x20"
             android:textColor="@color/app_text_color_666666"
             android:textSize="14dp" />
 

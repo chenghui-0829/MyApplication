@@ -9,7 +9,6 @@ import java.util.List;
 public class JzGroupGameEntity {
 
     private String time;
-    private Integer gameNum;
     private int ggfs;
     private String mcn;
     private String bs;
@@ -39,13 +38,6 @@ public class JzGroupGameEntity {
         this.ggfs = ggfs;
     }
 
-    public Integer getGameNum() {
-        return gameNum;
-    }
-
-    public void setGameNum(Integer gameNum) {
-        this.gameNum = gameNum;
-    }
 
     public String getTime() {
         return time;

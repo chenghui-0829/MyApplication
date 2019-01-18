@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -19,6 +20,9 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.scwang.smartrefresh.header.MaterialHeader;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.shrxc.sc.app.R;
 import com.shrxc.sc.app.adapter.JzAdapterUtil;
 import com.shrxc.sc.app.adapter.JzBfElvAdapter;
@@ -71,6 +75,8 @@ public class JczqActivity extends AppCompatActivity {
             R.id.jz_activity_select_ggfs_4_1_text, R.id.jz_activity_select_ggfs_5_1_text, R.id.jz_activity_select_ggfs_6_1_text,
             R.id.jz_activity_select_ggfs_7_1_text, R.id.jz_activity_select_ggfs_8_1_text})
     List<TextView> ggfsList;
+    @BindView(R.id.jz_activity_refresh_layout)
+    RefreshLayout refreshLayout;
     public static LinearLayout ggfsLayout;
     public static TextView ggfsTextView;
     public static TextView selectNumTextView;
@@ -90,7 +96,6 @@ public class JczqActivity extends AppCompatActivity {
     private List<String> ssTypeList;
     public static Map<Integer, Integer> ggfsMap, stateMap;
     private String ggfs = "";
-    public static List<JzGroupGameEntity> orderList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +106,11 @@ public class JczqActivity extends AppCompatActivity {
         selectNumTextView = findViewById(R.id.jz_activity_select_num_text);
         ggfsTextView = findViewById(R.id.jz_activity_select_ggfs_text);
         ggfsLayout = findViewById(R.id.jz_activity_select_ggfs_layout);
-        orderList = new ArrayList<>();
+
+        MaterialHeader materialHeader = new MaterialHeader(context);
+        materialHeader.setColorSchemeResources(R.color.app_blue_color_32b1f2);
+        refreshLayout.setRefreshHeader(materialHeader);
+
         initEvent();
         initGgfs();
         initSpfData();
@@ -114,7 +123,7 @@ public class JczqActivity extends AppCompatActivity {
         }
         for (int i = 0; i < ggfsList.size(); i++) {
             ggfsList.get(i).setEnabled(false);
-            ggfsList.get(i).setBackgroundResource(R.drawable.app_gray_stroke_circle_color);
+            ggfsList.get(i).setBackgroundResource(R.drawable.app_gray_color_e6e6e6);
         }
         ggfsList.get(0).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,6 +188,38 @@ public class JczqActivity extends AppCompatActivity {
 
     private void initEvent() {
 
+
+        refreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+
+                switch (select) {
+
+                    case 0:
+                        initSpfData();
+                        break;
+                    case 1:
+                        initRqspfData();
+                        break;
+                    case 2:
+                        initHhggData();
+                        break;
+                    case 3:
+                        initBfData();
+                        break;
+                    case 4:
+                        initJqsData();
+                        break;
+                    case 5:
+                        initBqcData();
+                        break;
+                    case 6:
+                        initDgData();
+                        break;
+                }
+            }
+        });
+
         bsEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -216,7 +257,13 @@ public class JczqActivity extends AppCompatActivity {
             changeGgfsLayout();
         }
         bsEditText.setText(bsNum + "");
-        selectNumTextView.setText("请至少选择2场比赛");
+
+        if (type == 6 || type == 3 || type == 4 || type == 5) {
+            selectNumTextView.setText("请至少选择1场比赛");
+        } else {
+            selectNumTextView.setText("请至少选择2场比赛");
+        }
+
         selectTextView.setText(JzAdapterUtil.getGgfs(type));
         select = type;
         for (int i = 0; i < elvList.size(); i++) {
@@ -239,7 +286,6 @@ public class JczqActivity extends AppCompatActivity {
             for (int i = 0; i < gameList.size(); i++) {
                 JzGroupGameEntity gameEntity = new JzGroupGameEntity();
                 gameEntity.setTime(gameList.get(i).getTime());
-                gameEntity.setGameNum(gameList.get(i).getGameNum());
                 List<JzChildGameEntity> childList = new ArrayList<>();
                 for (int j = 0; j < gameList.get(i).getGames().size(); j++) {
                     if (selectList.contains(gameList.get(i).getGames().get(j).getLeague())) {
@@ -298,7 +344,8 @@ public class JczqActivity extends AppCompatActivity {
     }
 
     @OnClick({R.id.jz_activity_select_type_text, R.id.jz_activity_sx_icon, R.id.jz_activity_sure_text, R.id.jz_activity_more_icon,
-            R.id.jz_activity_select_add_icon, R.id.jz_activity_select_sub_icon, R.id.jz_activity_select_ggfs_text})
+            R.id.jz_activity_select_add_icon, R.id.jz_activity_select_sub_icon, R.id.jz_activity_select_ggfs_text,
+            R.id.jz_activity_clear_text, R.id.jz_activity_back_icon})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.jz_activity_select_type_text:
@@ -349,7 +396,41 @@ public class JczqActivity extends AppCompatActivity {
             case R.id.jz_activity_select_ggfs_text:
                 changeGgfsLayout();
                 break;
+            case R.id.jz_activity_clear_text:
+                clearSelected();
+                break;
+            case R.id.jz_activity_back_icon:
+                finish();
+                break;
+        }
+    }
 
+    private void clearSelected() {
+
+        initGgfs();
+
+        switch (select) {
+            case 0:
+                spfElvAdapter.clearSelect();
+                break;
+            case 1:
+                rqspfElvAdapter.clearSelect();
+                break;
+            case 2:
+                hhggElvAdapter.clearSelect();
+                break;
+            case 3:
+                bfElvAdapter.clearSelect();
+                break;
+            case 4:
+                jqsElvAdapter.clearSelect();
+                break;
+            case 5:
+                bqcElvAdapter.clearSelect();
+                break;
+            case 6:
+                dgtzElvAdapter.clearSelect();
+                break;
         }
     }
 
@@ -416,7 +497,7 @@ public class JczqActivity extends AppCompatActivity {
                 break;
         }
         if (selectList.size() < 2) {
-            if (select == 6) {
+            if (select == 6 || select == 3 || select == 4 || select == 5) {
                 if (selectList.size() == 0) {
                     Toast.makeText(context, "请至少选择1场比赛", Toast.LENGTH_SHORT).show();
                     return;
@@ -619,6 +700,7 @@ public class JczqActivity extends AppCompatActivity {
                     }
                     JSONObject object = JSONObject.parseObject(data);
                     JSONArray gameArray = object.getJSONArray("list");
+
                     if (gameArray.size() == 0) {
                         Toast.makeText(context, "暂无比赛", Toast.LENGTH_SHORT).show();
                         return;
@@ -639,10 +721,12 @@ public class JczqActivity extends AppCompatActivity {
                         childEntity.setSpl(entityObject.getString("spl"));
                         childEntity.setPpl(entityObject.getString("ppl"));
                         childEntity.setFpl(entityObject.getString("fpl"));
-//                            childEntity.setRspl(entityObject.getString("rspl"));
-//                            childEntity.setRppl(entityObject.getString("rppl"));
-//                            childEntity.setRfpl(entityObject.getString("rfpl"));
+                        childEntity.setRspl(entityObject.getString("rspl"));
+                        childEntity.setRppl(entityObject.getString("rppl"));
+                        childEntity.setRfpl(entityObject.getString("rfpl"));
                         childEntity.setRangqiu(entityObject.getString("rangqiu"));
+                        childEntity.setIsSPF(entityObject.getString("IsSPF"));
+                        childEntity.setIsRSPF(entityObject.getString("IsRSPF"));
                         childEntities.add(childEntity);
                     }
                     ssTypeList = new ArrayList<>();
@@ -670,6 +754,7 @@ public class JczqActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 super.onFinish();
+                closeRefresh();
             }
         });
     }
@@ -690,6 +775,10 @@ public class JczqActivity extends AppCompatActivity {
                     }
                     JSONObject object = JSONObject.parseObject(data);
                     JSONArray gameArray = object.getJSONArray("list");
+                    if (gameArray.size() == 0) {
+                        Toast.makeText(context, "暂无比赛", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     List<JzChildGameEntity> childEntities = new ArrayList<>();
                     for (int i = 0; i < gameArray.size(); i++) {
                         JzChildGameEntity childEntity = new JzChildGameEntity();
@@ -740,6 +829,7 @@ public class JczqActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 super.onFinish();
+                closeRefresh();
             }
         });
 
@@ -763,6 +853,10 @@ public class JczqActivity extends AppCompatActivity {
 
                     JSONObject object = JSONObject.parseObject(data);
                     JSONArray gameArray = object.getJSONArray("list");
+                    if (gameArray.size() == 0) {
+                        Toast.makeText(context, "暂无比赛", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     List<JzChildGameEntity> childEntities = new ArrayList<>();
                     for (int i = 0; i < gameArray.size(); i++) {
                         JzChildGameEntity childEntity = new JzChildGameEntity();
@@ -812,6 +906,7 @@ public class JczqActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 super.onFinish();
+                closeRefresh();
             }
         });
     }
@@ -834,6 +929,12 @@ public class JczqActivity extends AppCompatActivity {
 
                     JSONObject object = JSONObject.parseObject(data);
                     JSONArray gameArray = object.getJSONArray("list");
+
+                    if (gameArray.size() == 0) {
+                        Toast.makeText(context, "暂无比赛", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
                     List<JzChildGameEntity> childEntities = new ArrayList<>();
                     for (int i = 0; i < gameArray.size(); i++) {
                         JzChildGameEntity childEntity = new JzChildGameEntity();
@@ -908,6 +1009,7 @@ public class JczqActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 super.onFinish();
+                closeRefresh();
             }
         });
     }
@@ -979,6 +1081,7 @@ public class JczqActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 super.onFinish();
+                closeRefresh();
             }
         });
     }
@@ -1001,6 +1104,12 @@ public class JczqActivity extends AppCompatActivity {
                     JSONObject object = JSONObject.parseObject(data);
                     JSONArray gameArray = object.getJSONArray("list");
                     List<JzChildGameEntity> childEntities = new ArrayList<>();
+
+                    if (gameArray.size() == 0) {
+                        Toast.makeText(context, "暂无比赛", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
                     for (int i = 0; i < gameArray.size(); i++) {
                         JzChildGameEntity childEntity = new JzChildGameEntity();
                         JSONObject entityObject = gameArray.getJSONObject(i);
@@ -1044,6 +1153,7 @@ public class JczqActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 super.onFinish();
+                closeRefresh();
             }
         });
 
@@ -1098,6 +1208,8 @@ public class JczqActivity extends AppCompatActivity {
                     JSONArray times = object.getJSONArray("times");
                     for (int i = 0; i < times.size(); i++) {
                         listMap.put(times.getString(i), null);
+
+                        System.out.println("============>" + times.getString(i));
                     }
                     gameList = getGameList(listMap, childEntities);
                     spfElvAdapter = new JzSpfElvAdapter(context, gameList);
@@ -1111,7 +1223,17 @@ public class JczqActivity extends AppCompatActivity {
                 super.onErro(erro);
                 System.out.println("====erro=====>" + erro);
             }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                closeRefresh();
+            }
         });
+    }
+
+    private void closeRefresh() {
+        refreshLayout.finishRefresh(500);
     }
 
     /**
@@ -1140,7 +1262,7 @@ public class JczqActivity extends AppCompatActivity {
         List<JzGroupGameEntity> gameList = new ArrayList<>();
         for (int i = 0; i < childList.size(); i++) {
             for (String key : listMap.keySet()) {
-                if (childList.get(i).getEndtime().contains(key)) {
+                if (childList.get(i).getStarttime().contains(key)) {
                     List<JzChildGameEntity> list = listMap.get(key);
                     if (list == null) {
                         list = new ArrayList<>();
@@ -1154,7 +1276,6 @@ public class JczqActivity extends AppCompatActivity {
         for (String key : listMap.keySet()) {
             JzGroupGameEntity entity = new JzGroupGameEntity();
             entity.setTime(key);
-            entity.setGameNum(listMap.get(key).size());
             entity.setGames(listMap.get(key));
             gameList.add(entity);
         }

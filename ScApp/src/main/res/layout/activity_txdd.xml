@@ -15,7 +15,7 @@
         android:background="@drawable/app_title_bg">
 
         <ImageView
-            android:id="@+id/dlk3_activity_back_icon"
+            android:id="@+id/txdd_activity_back_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -64,6 +64,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
+                            android:id="@+id/txdd_activity_order_title_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
@@ -73,6 +74,7 @@
                             android:textColor="@color/app_text_color_333333" />
 
                         <TextView
+                            android:id="@+id/txdd_activity_order_money_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
@@ -94,6 +96,7 @@
                             android:textColor="@color/app_text_color_999999" />
 
                         <TextView
+                            android:id="@+id/txdd_activity_order_bs_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="3dp"
@@ -113,6 +116,7 @@
                             android:textColor="@color/app_text_color_999999" />
 
                         <TextView
+                            android:id="@+id/txdd_activity_order_dj_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="3dp"
@@ -136,6 +140,7 @@
                                 android:textColor="@color/app_text_color_999999" />
 
                             <TextView
+                                android:id="@+id/txdd_activity_order_num_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="3dp"
@@ -144,6 +149,7 @@
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/txdd_activity_order_details_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
@@ -360,22 +366,7 @@
                     android:text="立即配送"
                     android:textColor="@color/app_text_color_333333"
                     android:textSize="14dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="预计12:55送达"
-                    android:textColor="@color/app_red_color_fa3243"
-                    android:textSize="14dp" />
             </LinearLayout>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:src="@mipmap/app_right_arrow_icon" />
         </RelativeLayout>
     </LinearLayout>
 
